@@ -1,0 +1,315 @@
+@import "base/break-points";
+@import "base/colors";
+
+.header {
+    box-shadow: 0px 4px 16px 0px #00000014;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1001;
+
+    @include bp (sm-max) {
+        .cart-btn.mdc-button {
+            width: 35px;
+            min-width: 35px;
+            height: 35px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+
+            em {
+                margin: 0;
+            }
+
+            ::ng-deep .mdc-button__label {
+                display: none;
+            }
+        }
+
+        .mat-mdc-icon-button.mat-mdc-button-base {
+            --mdc-icon-button-state-layer-size: 35px;
+            padding: 4px;
+        }
+    }
+
+    .logo {
+        display: flex;
+    }
+
+    .header-top {
+        padding: 16px 0;
+
+        @include bp (sm-max) {
+            padding: 10px 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 29px;
+
+            @include bp (sm-max) {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .right {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+
+                @include bp (sm-max) {
+                    .mdc-button.mat-mdc-button-base {
+                        font-size: 14px;
+                        line-height: 18px;
+                        padding: 8px;
+                        --mdc-filled-button-container-height: 40px;
+                    }
+                }
+
+                @include bp (xs-max) {
+                    gap: 4px;
+                }
+            }
+        }
+
+        .location-block {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background-image: url(../../../assets/images/ic-down.svg);
+            background-repeat: no-repeat;
+            background-position: right 3px top 3px;
+            background-size: 18px;
+            padding-right: 22px;
+
+            @include bp (sm-max) {
+                max-width: 100%;
+                width: 100%;
+                order: 3;
+            }
+
+            em {
+                display: flex;
+                margin: 0 8px 4px;
+            }
+
+            .address-text {
+                max-width: 172px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+
+                @include bp (sm-max) {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    .header-center {
+        border-bottom: 1px solid $gray-400;
+        border-top: 1px solid $gray-400;
+        padding: 9px 0;
+        background-color: #fff;
+    }
+
+    .mdc-button.mat-mdc-button-base.link-btn {
+        font-weight: 400;
+    }
+
+
+    .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background-image: url(../../../assets/images/ic-down.svg);
+        background-position: right center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        padding: 4px;
+        padding-right: 30px;
+        border-radius: 6px;
+
+        @include bp (xs-max) {
+            background-image: none;
+            padding-right: initial;
+        }
+
+        .avatar {
+            background-color: #008CFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #fff;
+            padding-top: 4px;
+        }
+
+        ._name {
+            max-width: 110px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+
+            @include bp (xs-max) {
+                display: none;
+            }
+        }
+    }
+}
+
+.header-bottom {
+    height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: all 0.3s;
+    max-height: calc(100vh - 140px - 80px);
+    overflow: auto;
+
+    ::ng-deep .show-menu & {
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    @include bp (sm-max) {
+        max-height: 300px;
+    }
+
+    .items-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px 0;
+
+        @include bp (sm-max) {
+            li {
+                width: 50%;
+            }
+        }
+
+        @include bp (xs-max) {
+            li {
+                width: 100%;
+            }
+        }
+
+        .items-list-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 16px;
+            background-color: #fff;
+            cursor: pointer;
+            color: $gray-700;
+
+            &.active {
+                border: 1px solid #b3ddff;
+                background-color: #e6f4ff;
+            }
+
+            em {
+                width: 48px;
+                min-width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                box-shadow: 0px 4px 16px 0px #00000033;
+                overflow: hidden;
+                display: block;
+            }
+        }
+    }
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    // background-color: rgba($color: #000000, $alpha: 0.6);
+    z-index: 4;
+    transition: all 0.3s;
+
+    ::ng-deep .show-menu & {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+::ng-deep .menu-panel.mat-mdc-menu-panel { 
+    .mat-mdc-menu-content {
+        width: 185px;
+    }
+    .mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {
+        letter-spacing: 0;
+        color: #222222;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .mat-mdc-menu-item {
+        padding: 0 20px;
+        min-height: 40px;
+    }
+    .mat-mdc-menu-item, .mat-mdc-menu-item:visited, .mat-mdc-menu-item:link {
+        color: #222222; 
+    }
+}
+.search-block {
+    top: -100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 4px 16px 0px #00000014;
+    padding: 16px 16px 2px;
+    z-index: 5;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+
+    .input-grp {
+        flex-wrap: nowrap;
+        display: flex;
+        gap: 10px;
+        .mat-mdc-icon-button.mat-mdc-button-base {
+            --mdc-icon-button-state-layer-size: 48px;
+            width: var(--mdc-icon-button-state-layer-size);
+            height: var(--mdc-icon-button-state-layer-size);
+            padding: 12px;
+          }
+    }
+
+    app-text-field {
+        width: 100%;
+    }
+}
+
+.show-search {
+    .search-block {
+        top: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    +.backdrop {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}

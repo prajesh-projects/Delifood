@@ -1,0 +1,32 @@
+<app-layout>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Home" [routerLink]="'/home'">Home</a>
+            <span class="breadcrumb-text">My Account</span>
+        </div>
+        <div class="menu-details-wrapper">
+            <div class="menu-list-wrapper">
+                <ul class="menu-list">
+                    <li>
+                        <a href="javascript:void(0);" title="Profile" routerLink="/my-account"
+                            [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Profile</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="Orders" routerLink="/my-account/order"
+                            [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Orders</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="Wishlist" routerLink="/my-account/wishlist"
+                            [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Wishlist</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="Settings">Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="_details">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</app-layout>

@@ -1,0 +1,118 @@
+<div mat-dialog-title>
+    <h5 class="m-0">Pickup Schedule</h5>
+    <button mat-icon-button mat-dialog-close><img src="./assets/images/ic-close.svg" /></button>
+</div>
+
+<mat-dialog-content>
+
+    <div class="store-view-block sm lp">
+        <div class="_left">
+            <ul class="additional-info-list">
+                <li class="name">
+                    <em class="i lg"><img src="./assets/images/ic-storefront.svg" /></em>
+                    <h6 class="m-0">Flavorsome Delights</h6>
+                    <div class="rating">4.0<em class="ic-star"></em></div>
+                </li>
+                <li>
+                    <em><img src="./assets/images/ic-loc-pin.svg" alt="" /></em>
+                    3km
+                </li>
+                <li>
+                    <em><img src="./assets/images/ic-clock.svg" alt="" /></em>
+                    20min
+                </li>
+            </ul>
+            <div class="text-icon"> <em class="i"><img src="./assets/images/ic-location-on.svg" /></em>456, Fictitious
+                Avenue, Imaginary
+                Colony, Mysuru, Karnataka, India</div>
+        </div>
+        <div class="btns-block">
+            <button mat-button color="primary" class="sm">
+                View Store
+            </button>
+        </div>
+    </div>
+
+    <div class="product-list-table-wrapper">
+        <ul class="product-list-table">
+            <li class="list-product-view">
+                <div class="item-box">
+                    <em class="thumb"
+                        style="background-image: url(assets/images/chicken-salami-img.png);"></em>
+                    <div class="center">
+                        <h6>Chicken Salami <span>(100gm)</span></h6>
+                        <div class="rating-wrap">
+                            <div class="review">
+                                <div class="rating">4.5<em class="ic-star"></em></div>1256 Reviews
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <span class="price v-list">₹300.00</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-product-view">
+                <div class="item-box">
+                    <em class="thumb"
+                        style="background-image: url(assets/images/chicken-salami-img.png);"></em>
+                    <div class="center">
+                        <h6>Chicken Salami <span>(100gm)</span></h6>
+                        <div class="rating-wrap">
+                            <div class="review">
+                                <div class="rating">4.5<em class="ic-star"></em></div>1256 Reviews
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <span class="price v-list">₹300.00</span>
+                    </div>
+                </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-between">
+                <strong class="h6">Total</strong>
+                <strong class="h6">₹600.00</strong>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h6 class="xs">Pickup Info</h6>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <ul class="table-list secondary sm">
+                    <li>
+                        <label>Name :</label>
+                        <span class="val">Leslie Alexander</span>
+                    </li>
+                    <li>
+                        <label>Email :</label>
+                        <span class="val">lesliealexander&#64;gmail.com</span>
+                    </li>
+                    <li>
+                        <label>Phone Number :</label>
+                        <span class="val">8956958969</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6">
+                <ul class="table-list secondary sm">
+                    <li>
+                        <label>Pickup Date :</label>
+                        <span class="val">23/8/2023</span>
+                    </li>
+                    <li>
+                        <label>Pickup Time :</label>
+                        <span class="val">12:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" class="sm" [mat-dialog-close]="true" cdkFocusInitial>ok</button>
+</mat-dialog-actions>

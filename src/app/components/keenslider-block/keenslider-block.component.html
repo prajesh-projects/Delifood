@@ -1,0 +1,11 @@
+<div class="keen-slider-multiple">
+    <div class="keen-slider" #sliderRef>
+        <ng-content></ng-content>
+    </div>
+    <div class="slider-nav">
+        <div class="arrow arrow--left" [ngClass]="{'arrow--disabled':  prevDisabled}"
+            (click)="slider.prev()"><img src="./assets/images/ic-left.svg" alt="" /></div>
+        <div class="arrow arrow--right" [ngClass]="{'arrow--disabled':  nextDisabled}" (click)="slider.next()"><img
+                src="./assets/images/ic-right.svg" alt="" /></div>
+    </div>
+</div>

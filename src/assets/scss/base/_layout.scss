@@ -1,0 +1,471 @@
+@charset "utf-8";
+@import "base/break-points";
+@import "base/colors";
+
+/*
+------------------------------------------------------------
+Project Name : Deli Food;
+------------------------------------------------------------
+*/
+
+/* Reset 
+--------------------------------------------------------------------------------------------------------*/
+
+/* 
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* General 
+--------------------------------------------------------------------------------------------------------*/
+*,
+*::before,
+*::after {
+  outline: none !important;
+  box-sizing: border-box;
+}
+
+a {
+  transition: all 0.3s;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body {
+  font-size: 16px;
+  line-height: 22px;
+  font-family: $League_Spartan;
+  color: $gray-700;
+  -ms-overflow-style: scrollbar;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+a {
+  color: $primary-500;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0079db;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 15px;
+  padding: 0;
+  font-weight: normal;
+  font-family: $League_Spartan !important;
+  letter-spacing: 0;
+}
+
+h2,
+.h2,
+.mat-h2,
+.mat-typography .mat-h2,
+.mat-typography h2 {
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 600;
+  color: $gray-700;
+
+  @include bp (md-max) {
+    font-size: 35px;
+    line-height: 39px;
+  }
+
+  @include bp (sm-max) {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+h3,
+.h3,
+.mat-h3,
+.mat-typography .mat-h3,
+.mat-typography h3 {
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 600;
+  color: $gray-700;
+
+  @include bp (md-max) {
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  @include bp (sm-max) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+h4,
+.h4,
+.mat-h4,
+.mat-typography .mat-h4,
+.mat-typography h4 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+  color: $gray-700;
+
+  @include bp (md-max) {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  @include bp (sm-max) {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+h5,
+.h5,
+.mat-h5,
+.mat-typography .mat-h5,
+.mat-typography h5 {
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 600;
+  color: $gray-700;
+
+  @include bp (md-max) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @include bp (sm-max) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+h6,
+.h6,
+.mat-h6,
+.mat-typography .mat-h6,
+.mat-typography h6 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  color: $gray-700;
+
+  @include bp (sm-max) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+h6.sm,
+.mat-typography h6.sm {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+h6.xs,
+.mat-typography h6.xs {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+
+p {
+  color: #666;
+
+  &.lg {
+    font-size: 18px;
+    line-height: 22px;
+
+    @include bp (xs-max) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &.sm {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+em {
+  display: inline-block;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: #000;
+}
+
+::-moz-placeholder {
+  color: #000;
+}
+
+:-ms-input-placeholder {
+  color: #000;
+}
+
+:-moz-placeholder {
+  color: #000;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+option:not(:checked) {
+  color: black;
+}
+
+img {
+  max-width: 100%;
+}
+
+.text-error {
+  color: #FE5858;
+}
+
+.text-primary {
+  color: $primary-500;
+}
+
+.text-green {
+  color: #26A661;
+}
+
+.btns-block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  &.right {
+    justify-content: flex-end;
+  }
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.fade-border {
+  position: relative;
+  padding-top: 13px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 140px;
+    background: linear-gradient(90deg, #FF9671 -0.01%, rgba(255, 150, 113, 0.12) 45.2%, rgba(255, 150, 113, 0) 99.99%);
+  }
+
+}
+
+.bb {
+  padding-bottom: 24px;
+  border-bottom: 1px solid $gray-400;
+}
+
+.wrapper {
+  min-height: 100vh;
+  padding-top: 220px;
+  display: flex;
+  flex-direction: column;
+
+  @include bp (sm-max) {
+    padding-top: 224px;
+  }
+}
+
+.main-content {
+  padding: 30px 15px 140px;
+  flex-grow: 1;
+
+  @include bp (smd-max) {
+    padding: 30px 15px 80px;
+  }
+
+  @include bp (sm-max) {
+    padding: 20px 15px;
+  }
+
+  @include bp (xs-max) {
+    padding: 15px 10px;
+  }
+}
+
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+@media (max-width:1199px) {}
+
+@media (max-width:991px) {}
+
+@media (max-width:767px) {}
+
+@media (max-width:575px) {}

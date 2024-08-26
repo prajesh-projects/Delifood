@@ -1,0 +1,635 @@
+<app-layout>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Home" [routerLink]="'/home'">Home</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Cheeses"
+                [routerLink]="'/product-listing'">Cheeses</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Paneer"
+                [routerLink]="'/product-listing'">Paneer</a>
+            <span class="breadcrumb-text">Regular Paneer</span>
+        </div>
+
+        <div class="product-details-wrapper">
+            <div class="product-gallery">
+                <div class="keen-slider main-screen" #sliderRef>
+                    <div class="keen-slider__slide">
+                        <div>
+                            <img src="assets/images/rectangle-panner-img.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="keen-slider__slide">
+                        <div>
+                            <img src="assets/images/rectangle-malai-panner-img.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="keen-slider__slide">
+                        <div>
+                            <img src="assets/images/rectangle-marinated-paneer-img.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="keen-slider__slide">
+                        <div>
+                            <img src="assets/images/rectangle-paneer-blocks-img.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="keen-slider__slide">
+                        <div>
+                            <img src="assets/images/rectangle-paneer-crumbles-img.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="keen-slider__slide">
+                        <div>
+                            <img src="assets/images/rectangle-smoked-paneer-img.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="keen-slider-multiple">
+                    <div class="keen-slider thumbnail" #thumbnailRef>
+                        <div class="keen-slider__slide">
+                            <div>
+                                <img src="assets/images/rectangle-panner-img.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="keen-slider__slide">
+                            <div>
+                                <img src="assets/images/rectangle-malai-panner-img.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="keen-slider__slide">
+                            <div>
+                                <img src="assets/images/rectangle-marinated-paneer-img.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="keen-slider__slide">
+                            <div>
+                                <img src="assets/images/rectangle-paneer-blocks-img.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="keen-slider__slide">
+                            <div>
+                                <img src="assets/images/rectangle-paneer-crumbles-img.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="keen-slider__slide">
+                            <div>
+                                <img src="assets/images/rectangle-smoked-paneer-img.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <div class="arrow arrow--left" [ngClass]="currentSlide === 0 ? 'arrow--disabled' : ''"
+                            (click)="slider.prev()">
+                            <img src="./assets/images/ic-left.svg" alt="" />
+                        </div>
+                        <div class="arrow arrow--right" [ngClass]="{ 'arrow--disabled': nextDisabled }"
+                            (click)="slider.next()">
+                            <img src="./assets/images/ic-right.svg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-detail">
+                <div class="d-flex justify-content-between flex-wrap align-items-start">
+                    <div class="d-flex flex-wrap g-12">
+                        <span class="primary-t-chip orange">Bestseller</span>
+                        <span class="primary-t-chip">Gluten Free</span>
+                    </div>
+                    <div class="d-flex flex-wrap g-10">
+                        <button mat-icon-button class="border sm">
+                            <img src="./assets/images/ic-link.svg" />
+                        </button>
+                        <button mat-icon-button class="border sm">
+                            <img src="./assets/images/ic-share.svg" />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="title">
+                    <div class="info">
+                        <h3>Regular Paneer</h3>
+                        <p class="m-0">
+                            The classic fresh paneer made from cow's or buffalo's milk, with a
+                            soft and crumbly texture.
+                        </p>
+                    </div>
+                    <div class="rating-box">
+                        <div class="rating">
+                            4.0<em class="ic-star"><img src="./assets/images/ic-star.svg" /></em>
+                        </div>
+                        <div class="bottom"><span class="d-block">1256</span>Reviews</div>
+                    </div>
+                </div>
+
+                <div class="price-and-delivery-info">
+                    <strong class="price h5">₹300.00 <span class="text-green">In Stock</span></strong>
+                    <p class="delivery-time m-0">
+                        Delivers Between : <span>31 July 2023 - 04 August 2023</span>
+                    </p>
+                </div>
+
+                <div class="el-group">
+                    <h6 class="sm">Sold By</h6>
+                    <div class="store-view-block">
+                        <em class="i"><img src="./assets/images/ic-storefront.svg" alt="" /></em>
+                        <h6 class="m-0">Flavorsome Delights</h6>
+                        <div class="rating">4.5<em class="ic-star"></em></div>
+                        <div class="btns-block">
+                            <button mat-button color="primary" class="xs" [routerLink]="'/shop-details'">View
+                                Store</button>
+                            <button mat-stroked-button color="primary" class="xs" (click)="chooseStoreDialog()">
+                                Pick Up In Store
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="el-group mb-30p">
+                    <h6 class="sm">Quantity</h6>
+                    <mat-chip-listbox class="selectable">
+                        <mat-chip-option>100gm</mat-chip-option>
+                        <mat-chip-option selected>200gm</mat-chip-option>
+                        <mat-chip-option>500gm</mat-chip-option>
+                        <mat-chip-option>1kg</mat-chip-option>
+                        <mat-chip-option>5kg</mat-chip-option>
+                    </mat-chip-listbox>
+                </div>
+
+                <div class="btns-block">
+                    <app-counter-btn-wrapper></app-counter-btn-wrapper>
+                    <button mat-stroked-button color="primary" (click)="addWishlist()">
+                        {{ AddtoWishlist }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <mat-tab-group class="product-tabs">
+            <mat-tab label="Nutritional Facts">
+                <ul class="table-list">
+                    <li>
+                        <label>Calories:</label>
+                        <span class="val">300-350 kcal</span>
+                    </li>
+                    <li>
+                        <label>Protein:</label>
+                        <span class="val">18-20 grams</span>
+                    </li>
+                    <li>
+                        <label>Fat:</label>
+                        <span class="val">20-22 grams</span>
+                    </li>
+                    <li>
+                        <label>Carbohydrates:</label>
+                        <span class="val">4-6 grams</span>
+                    </li>
+                    <li>
+                        <label>Fiber:</label>
+                        <span class="val">0 grams</span>
+                    </li>
+                    <li>
+                        <label>Calcium:</label>
+                        <span class="val">200-250 mg</span>
+                    </li>
+                    <li>
+                        <label>Iron:</label>
+                        <span class="val">0.5-1 mg</span>
+                    </li>
+                    <li>
+                        <label>Sodium:</label>
+                        <span class="val">4-6 grams</span>
+                    </li>
+                    <li>
+                        <label>Cholesterol:</label>
+                        <span class="val">70-100 mg</span>
+                    </li>
+                    <li></li>
+                </ul>
+            </mat-tab>
+            <mat-tab label="Paneer Based Recipes">
+                <mat-accordion>
+                    <mat-expansion-panel [expanded]="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title> Paneer Tikka Masala </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="recipe-info-wrapper">
+                            <div class="recipe-info">
+                                <div class="el-group">
+                                    <h6 class="xs">Ingredients</h6>
+                                    <p>
+                                        200 grams paneer, cut into cubes, 1/2 cup thick yogurt, 1
+                                        tablespoon ginger-garlic paste, 1 tablespoon lemon juice, 1
+                                        teaspoon garam masala, 1 teaspoon cumin powder, 1 teaspoon
+                                        coriander powder, 1/2 teaspoon turmeric powder, 1/2 teaspoon
+                                        red chili powder (adjust to your spice preference), 1/2 cup
+                                        tomato puree or finely chopped tomatoes, 1/4 cup cream or
+                                        cashew paste (optional, for a creamier sauce), 1 tablespoon
+                                        oil, Salt to taste, Fresh cilantro (coriander) leaves for
+                                        garnish, Lemon wedges for serving
+                                    </p>
+                                </div>
+                                <div class="el-group m-0">
+                                    <h6 class="xs">Instructions</h6>
+                                    <p class="pera-count">
+                                        <span>1</span>In a bowl, mix yogurt, ginger-garlic paste,
+                                        lemon juice, garam masala, cumin powder, coriander powder,
+                                        turmeric powder, red chili powder, and salt to form the
+                                        marinade.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>2</span>Add the paneer cubes to the marinade, ensuring
+                                        they are coated evenly. Cover the bowl and let it marinate
+                                        for at least 30 minutes (or refrigerate for a few hours for
+                                        better flavor).
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>3</span>In aPreheat the oven to 200°C (392°F) or heat
+                                        a grill pan on medium heat. If using the oven, place the
+                                        marinated paneer cubes on a greased baking tray. If using a
+                                        grill pan, brush it with oil and place the paneer cubes on
+                                        it bowl, mix yogurt, ginger-garlic paste, lemon juice, garam
+                                        masala, cumin powder, coriander powder, turmeric powder, red
+                                        chili powder, and salt to form the marinade.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>4</span>Cook the paneer for about 10-12 minutes,
+                                        turning occasionally, until they develop a slight char and
+                                        are cooked through.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>5</span>In a separate pan, heat oil and add the tomato
+                                        puree or chopped tomatoes. Cook until the tomatoes are soft
+                                        and the oil starts to separate.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>6</span>Add the cream or cashew paste (if using) and
+                                        mix well. Cook for another 2-3 minutes.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>7</span>Add the cooked paneer cubes to the tomato
+                                        sauce and gently mix to coat them with the sauce. Simmer for
+                                        a few minutes to allow the flavors to meld.
+                                    </p>
+                                    <p class="pera-count m-0">
+                                        <span>8</span>Garnish with fresh cilantro leaves and serve
+                                        hot with lemon wedges on the side.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="recipe-video">
+                                <em class="i"><img src="./assets/images/rectangle-paneer-tikka-img.png" alt="" /></em>
+                                <button mat-stroked-button color="primary" class="xs">
+                                    Watch Tutorial
+                                </button>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title> Paneer Butter Masala </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="recipe-info-wrapper">
+                            <div class="recipe-info">
+                                <div class="el-group">
+                                    <h6 class="xs">Ingredients</h6>
+                                    <p>
+                                        200 grams paneer, cut into cubes, 1/2 cup thick yogurt, 1
+                                        tablespoon ginger-garlic paste, 1 tablespoon lemon juice, 1
+                                        teaspoon garam masala, 1 teaspoon cumin powder, 1 teaspoon
+                                        coriander powder, 1/2 teaspoon turmeric powder, 1/2 teaspoon
+                                        red chili powder (adjust to your spice preference), 1/2 cup
+                                        tomato puree or finely chopped tomatoes, 1/4 cup cream or
+                                        cashew paste (optional, for a creamier sauce), 1 tablespoon
+                                        oil, Salt to taste, Fresh cilantro (coriander) leaves for
+                                        garnish, Lemon wedges for serving
+                                    </p>
+                                </div>
+                                <div class="el-group m-0">
+                                    <h6 class="xs">Instructions</h6>
+                                    <p class="pera-count">
+                                        <span>1</span>In a bowl, mix yogurt, ginger-garlic paste,
+                                        lemon juice, garam masala, cumin powder, coriander powder,
+                                        turmeric powder, red chili powder, and salt to form the
+                                        marinade.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>2</span>Add the paneer cubes to the marinade, ensuring
+                                        they are coated evenly. Cover the bowl and let it marinate
+                                        for at least 30 minutes (or refrigerate for a few hours for
+                                        better flavor).
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>3</span>In aPreheat the oven to 200°C (392°F) or heat
+                                        a grill pan on medium heat. If using the oven, place the
+                                        marinated paneer cubes on a greased baking tray. If using a
+                                        grill pan, brush it with oil and place the paneer cubes on
+                                        it bowl, mix yogurt, ginger-garlic paste, lemon juice, garam
+                                        masala, cumin powder, coriander powder, turmeric powder, red
+                                        chili powder, and salt to form the marinade.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>4</span>Cook the paneer for about 10-12 minutes,
+                                        turning occasionally, until they develop a slight char and
+                                        are cooked through.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>5</span>In a separate pan, heat oil and add the tomato
+                                        puree or chopped tomatoes. Cook until the tomatoes are soft
+                                        and the oil starts to separate.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>6</span>Add the cream or cashew paste (if using) and
+                                        mix well. Cook for another 2-3 minutes.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>7</span>Add the cooked paneer cubes to the tomato
+                                        sauce and gently mix to coat them with the sauce. Simmer for
+                                        a few minutes to allow the flavors to meld.
+                                    </p>
+                                    <p class="pera-count m-0">
+                                        <span>8</span>Garnish with fresh cilantro leaves and serve
+                                        hot with lemon wedges on the side.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="recipe-video">
+                                <em class="i"><img src="./assets/images/rectangle-paneer-tikka-img.png" alt="" /></em>
+                                <button mat-stroked-button color="primary" class="xs">
+                                    Watch Tutorial
+                                </button>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title> Palak Paneer </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="recipe-info-wrapper">
+                            <div class="recipe-info">
+                                <div class="el-group">
+                                    <h6 class="xs">Ingredients</h6>
+                                    <p>
+                                        200 grams paneer, cut into cubes, 1/2 cup thick yogurt, 1
+                                        tablespoon ginger-garlic paste, 1 tablespoon lemon juice, 1
+                                        teaspoon garam masala, 1 teaspoon cumin powder, 1 teaspoon
+                                        coriander powder, 1/2 teaspoon turmeric powder, 1/2 teaspoon
+                                        red chili powder (adjust to your spice preference), 1/2 cup
+                                        tomato puree or finely chopped tomatoes, 1/4 cup cream or
+                                        cashew paste (optional, for a creamier sauce), 1 tablespoon
+                                        oil, Salt to taste, Fresh cilantro (coriander) leaves for
+                                        garnish, Lemon wedges for serving
+                                    </p>
+                                </div>
+                                <div class="el-group m-0">
+                                    <h6 class="xs">Instructions</h6>
+                                    <p class="pera-count">
+                                        <span>1</span>In a bowl, mix yogurt, ginger-garlic paste,
+                                        lemon juice, garam masala, cumin powder, coriander powder,
+                                        turmeric powder, red chili powder, and salt to form the
+                                        marinade.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>2</span>Add the paneer cubes to the marinade, ensuring
+                                        they are coated evenly. Cover the bowl and let it marinate
+                                        for at least 30 minutes (or refrigerate for a few hours for
+                                        better flavor).
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>3</span>In aPreheat the oven to 200°C (392°F) or heat
+                                        a grill pan on medium heat. If using the oven, place the
+                                        marinated paneer cubes on a greased baking tray. If using a
+                                        grill pan, brush it with oil and place the paneer cubes on
+                                        it bowl, mix yogurt, ginger-garlic paste, lemon juice, garam
+                                        masala, cumin powder, coriander powder, turmeric powder, red
+                                        chili powder, and salt to form the marinade.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>4</span>Cook the paneer for about 10-12 minutes,
+                                        turning occasionally, until they develop a slight char and
+                                        are cooked through.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>5</span>In a separate pan, heat oil and add the tomato
+                                        puree or chopped tomatoes. Cook until the tomatoes are soft
+                                        and the oil starts to separate.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>6</span>Add the cream or cashew paste (if using) and
+                                        mix well. Cook for another 2-3 minutes.
+                                    </p>
+                                    <p class="pera-count">
+                                        <span>7</span>Add the cooked paneer cubes to the tomato
+                                        sauce and gently mix to coat them with the sauce. Simmer for
+                                        a few minutes to allow the flavors to meld.
+                                    </p>
+                                    <p class="pera-count m-0">
+                                        <span>8</span>Garnish with fresh cilantro leaves and serve
+                                        hot with lemon wedges on the side.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="recipe-video">
+                                <em class="i"><img src="./assets/images/rectangle-paneer-tikka-img.png" alt="" /></em>
+                                <button mat-stroked-button color="primary" class="xs">
+                                    Watch Tutorial
+                                </button>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-tab>
+            <mat-tab label="Customer Reviews">
+                <div class="customer-review-wrapper">
+                    <div class="customer-review-info">
+                        <div class="filter-block">
+                            <mat-form-field class="select no-b short-select" subscriptSizing="dynamic">
+                                <label>Sort By : </label>
+                                <mat-select value="option2" panelClass="myPanel short">
+                                    <mat-option value="option1">Latest </mat-option>
+                                    <mat-option value="option2">Recommonded </mat-option>
+                                    <mat-option value="option3">Rating Low to High </mat-option>
+                                    <mat-option value="option4">Rating High to Low </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="review-block">
+                                    <div class="user-wrapper d-flex align-items-center justify-content-between  flex-wrap flex-sm-nowrap gap">
+                                        <div class="user-info">
+                                            <em class="dp" style="background-image: url(assets/images/dp.png);"></em>
+                                            <div>
+                                                <h6>Brooklyn Simmons</h6>
+                                                <p class="m-0">August 24, 2022</p>
+                                            </div>
+                                        </div>
+                                        <ul class="btns-block">
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-thumb-up.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-chat-bubble.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-share.svg" />
+                                            </button>
+                                        </ul>
+                                    </div>
+                                    <app-rating [star]="3"></app-rating>
+                                    <p class="m-0">The regular paneer was so fresh and soft! I used it in my homemade
+                                        curry, and it turned out
+                                        fantastic. Definitely buying this again.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="review-block">
+                                    <div
+                                        class="user-wrapper d-flex align-items-center justify-content-between  flex-wrap flex-sm-nowrap gap">
+                                        <div class="user-info">
+                                            <em class="dp" style="background-image: url(assets/images/dp2.png);"></em>
+                                            <div>
+                                                <h6>Darlene Robertson</h6>
+                                                <p class="m-0">October 25, 2021</p>
+                                            </div>
+                                        </div>
+                                        <ul class="btns-block">
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-thumb-up.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-chat-bubble.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-share.svg" />
+                                            </button>
+                                        </ul>
+                                    </div>
+                                    <app-rating [star]="4"></app-rating>
+                                    <p class="m-0">I love the versatility of regular paneer. I've used it in sandwiches,
+                                        salads, and even grilled it with some spices. It's always a hit!</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="review-block">
+                                    <div
+                                        class="user-wrapper d-flex align-items-center justify-content-between  flex-wrap flex-sm-nowrap gap">
+                                        <div class="user-info">
+                                            <em class="dp" style="background-image: url(assets/images/dp3.png);"></em>
+                                            <div>
+                                                <h6>Cameron Williamson</h6>
+                                                <p class="m-0">February 11, 2021</p>
+                                            </div>
+                                        </div>
+                                        <ul class="btns-block">
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-thumb-up.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-chat-bubble.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-share.svg" />
+                                            </button>
+                                        </ul>
+                                    </div>
+                                    <app-rating [star]="4"></app-rating>
+                                    <p class="m-0">This paneer is perfect for making paneer tikka. It absorbs flavors
+                                        well and grills beautifully. Highly recommended for any paneer lover!</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="review-block">
+                                    <div
+                                        class="user-wrapper d-flex align-items-center justify-content-between  flex-wrap flex-sm-nowrap gap">
+                                        <div class="user-info">
+                                            <em class="dp" style="background-image: url(assets/images/dp4.png);"></em>
+                                            <div>
+                                                <h6>Esther Howard</h6>
+                                                <p class="m-0">May 29, 2020</p>
+                                            </div>
+                                        </div>
+                                        <ul class="btns-block">
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-thumb-up.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-chat-bubble.svg" />
+                                            </button>
+                                            <button mat-icon-button class="border sm">
+                                                <img src="./assets/images/ic-share.svg" />
+                                            </button>
+                                        </ul>
+                                    </div>
+                                    <app-rating [star]="4"></app-rating>
+                                    <p class="m-0">Regular paneer is my go-to protein source as a vegetarian. It's so
+                                        convenient to have in the fridge, and it adds a creamy touch to any dish.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="load-more-block">
+                            <a href="javascript:void(0);" title="Load More ">
+                                Load More <img src="./assets/images/ic-fill-down.svg" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="customer-review-rating">
+                        <div class="d-flex flex-column justify-content-center _top">
+                            <strong>4.0</strong>
+                            <app-rating [star]="4"></app-rating>
+                            <span>1256 Reviews</span>
+                        </div>
+                        <ul class="_list">
+                            <li>
+                                <app-rating-progressbar prefix="5.0" value="15"></app-rating-progressbar>
+                            </li>
+                            <li>
+                                <app-rating-progressbar prefix="4.0" value="68"></app-rating-progressbar>
+                            </li>
+                            <li>
+                                <app-rating-progressbar prefix="3.0" value="12"></app-rating-progressbar>
+                            </li>
+                            <li>
+                                <app-rating-progressbar prefix="2.0" value="14"></app-rating-progressbar>
+                            </li>
+                            <li>
+                                <app-rating-progressbar prefix="1.0" value="1"></app-rating-progressbar>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+        <h5 class="mb-24p">People Also Bought This Together</h5>
+        <div class="row spacing-40p">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="el-group">
+                    <app-item-box Img="assets/images/rectangle-marinated-paneer-img.png" ItemName="Marinated Paneer"
+                        ShopName="Flavorsome Delights" TotalRate="4.5" TotalReview="1256"
+                        Price="₹150.00"></app-item-box>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="el-group">
+                    <app-item-box Img="assets/images/rectangle-tofu-panner-img.png" ItemName="Tofu Paneer"
+                        ShopName="Flavorsome Delights" TotalRate="4.5" TotalReview="1256"
+                        Price="₹150.00"></app-item-box>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="el-group">
+                    <app-item-box Img="assets/images/rectangle-paneer-crumbles-img.png" ItemName="Paneer Cubes"
+                        ShopName="Flavorsome Delights" TotalRate="4.5" TotalReview="1256"
+                        Price="₹150.00"></app-item-box>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="el-group">
+                    <app-item-box Img="assets/images/rectangle-paneer-blocks-img.png" ItemName="Paneer Blocks"
+                        ShopName="Flavorsome Delights" TotalRate="4.5" TotalReview="1256"
+                        Price="₹150.00"></app-item-box>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-layout>

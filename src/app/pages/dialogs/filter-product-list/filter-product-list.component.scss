@@ -1,0 +1,32 @@
+.checkbox-chips {
+    ::ng-deep .mat-mdc-chip.mat-mdc-standard-chip {
+        --mdc-chip-container-height: 40px;
+        --mdc-chip-label-text-line-height: 20px;
+        --mdc-chip-label-text-size: 16px;
+        --mdc-chip-label-text-weight: 400;
+
+        &.mat-mdc-chip-selected {
+            --mdc-chip-elevated-container-color: #E6F4FF;
+            --mdc-chip-disabled-label-text-color: #222;
+            --mdc-chip-selected-label-text-color: #222;
+            --mdc-chip-elevated-selected-container-color: #E6F4FF;
+            border-color: #B3DDFF;
+        }
+
+        .mat-mdc-chip-action {
+            padding: 2px 20px 0;
+        }
+
+        .mdc-evolution-chip__graphic {
+            display: none;
+        }
+
+        .mat-mdc-chip-focus-overlay {
+            display: none;
+        }
+
+        .mat-ripple-element {
+            background-color: #E6F4FF !important;
+        }
+    }
+}

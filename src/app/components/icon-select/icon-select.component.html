@@ -1,0 +1,16 @@
+<mat-form-field >
+    <mat-select [(value)]="selected" [ngClass]="selected" >
+        <mat-option value="option1">
+            <img with="10" height="10" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg">
+            option1
+        </mat-option>
+        <mat-option value="option1">
+            <img with="10" height="10" src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg">
+            option2
+        </mat-option>
+        <mat-option value="option1">
+            option3
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+    <p>You selected: {{selected}}</p>

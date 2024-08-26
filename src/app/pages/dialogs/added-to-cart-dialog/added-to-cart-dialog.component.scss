@@ -1,0 +1,32 @@
+@import '../../../../assets/scss/base/break-points';
+
+.pop-thumb-msg > em {
+    margin-bottom: 10px;
+}
+
+.item-box {
+    align-items: normal;
+    .center {
+        align-self: center;
+    }
+    .right {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        min-width: auto;
+    }
+    .price {
+        margin: 0;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .thumb {
+        width: 130px;
+        padding-bottom: 92px;
+
+        @include bp (xs-max) {
+            width: 100%;
+            padding-bottom: 140px;
+        }
+    }
+}

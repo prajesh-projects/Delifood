@@ -1,0 +1,36 @@
+<div mat-dialog-title class="b-none">
+    <h5 class="m-0"></h5>
+    <button mat-icon-button mat-dialog-close><img src="./assets/images/ic-close.svg" /></button>
+</div>
+
+<mat-dialog-content>
+    <div class="pop-thumb-msg">
+        <em class="i"><img src="./assets/images/ic-added-successfully.svg" /></em>
+        <h4>Added Into Cart Successfully</h4>
+    </div>
+
+    <div class="list-product-view">
+        <div class="item-box card">
+            <em class="thumb" style="background-image: url(assets/images/chicken-salami-img.png);"></em>
+            <div class="center">
+                <h6>Regular Panner <span> (100gm)</span></h6>
+                <p class="store">Flavorsome Delights</p>
+                <div class="rating-wrap">
+                    <div class="review">
+                        <div class="rating">4.0<em class="ic-star"></em></div>1256 Reviews
+                    </div>
+                    <!-- <span class="price">₹150.00</span> -->
+                </div>
+            </div>
+            <div class="right">
+                <app-counter-btn-wrapper [onlyCounter]=true></app-counter-btn-wrapper>
+                <span class="price v-list">₹300.00</span>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" class="sm" mat-dialog-close>Continue Shopping</button>
+    <button mat-flat-button color="primary" class="sm" [mat-dialog-close]="true" cdkFocusInitial>Go to Cart</button>
+</mat-dialog-actions>

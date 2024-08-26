@@ -1,0 +1,793 @@
+<app-layout>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Home" [routerLink]="'/home'">Home</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Cheeses"
+                [routerLink]="'/product-listing'">Cheeses</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Cheeses"
+                [routerLink]="'/product-listing'">Paneer</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Cheeses"
+                [routerLink]="'/product-listing'">Regular Paneer</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Cheeses"
+                [routerLink]="'/product-listing'">Cart</a>
+            <span class="breadcrumb-text">Checkout</span>
+        </div>
+        <div class="title">
+            <div class="title-left">
+                <h4 class="m-0">Secure Checkout</h4>
+            </div>
+        </div>
+
+        <div class="row checkout-row">
+            <div class="col-12 col-lg-8">
+                <ul class="details-stepper">
+                    <li class="active" [ngClass]="(signupCompleted? 'complated' : '')">
+                        <span class="in">1</span>
+                        <div class="card account">
+                            <div class="signin-text">
+                                <h6 class="m-0">Account</h6>
+                                <div *ngIf="signupCompleted" class="d-flex align-items-center text-green">
+                                    <svg-icon src="./assets/images/ic-round-success-check.svg" class="i"></svg-icon>
+                                    Signed In
+                                </div>
+                            </div>
+                            <p *ngIf="!signupCompleted" class="m-0">To place your order now, log in to your existing
+                                account or sign
+                                up or continue as a guest.</p>
+                            <button mat-flat-button color="primary" class="sign-btn" *ngIf="signupbtn"
+                                (click)="signup()">Sign In /
+                                Sign Up</button>
+
+                            <!-- number  -->
+                            <div class="_details-body" *ngIf="signupBlock">
+                                <p class="lg">An OTP will be sent to your mobile number for
+                                    verification</p>
+                                <div class="_form">
+                                    <div class="form-group">
+                                        <app-text-field label="Phone Number"
+                                            img="./assets/images/ic-phone.svg"></app-text-field>
+                                    </div>
+                                    <button mat-flat-button color="primary" class="w-100 mb-10p" (click)="getOtp()">Get
+                                        OTP</button>
+
+                                    <p class="sm">By Clicking on Sign In, I accept the <a href="javascript:void(0);"
+                                            title="Terms & Condition">Terms
+                                            & Condition</a> & <a href="javascript:void(0);"
+                                            title="Privacy Policy">Privacy Policy</a></p>
+                                </div>
+                            </div>
+
+                            <!-- OTP block -->
+                            <div class="_details-body otp-block" *ngIf="otpBlock">
+                                <p class="lg">We've sent an OTP to XXX XXX 6325</p>
+                                <div class="_form">
+                                    <div class="form-group">
+                                        <app-text-field label="Phone Number" btn="./assets/images/ic-edit.svg"
+                                            value="8569656325" class="filled pr" disable="true"></app-text-field>
+                                    </div>
+                                    <div class="form-group mb-0">
+                                        <app-text-field label="One Time Password"></app-text-field>
+                                    </div>
+                                    <app-resend-timer />
+                                    <button mat-flat-button color="primary" class="w-100" (click)="verifyOtp()">Verify
+                                        OTP</button>
+                                </div>
+                            </div>
+
+                            <!-- signup finished -->
+                            <div class="dp-info" *ngIf="signupCompleted">
+                                <em class="avatar"
+                                    style="background-image: url(./assets/images/ic-round-user.svg);"></em>
+                                <div>
+                                    <h6 class="xs">Kathryn Murphy</h6>
+                                    <p>9773403493</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li [ngClass]="{'complated': addressComplation,'active': shippingBody}">
+                        <span class="in">2</span>
+                        <div class="card shipping">
+                            <div class="title" [ngClass]="(!addressComplation && !shippingBody? 'mb-0' : 'mb-24p')">
+                                <div>
+                                    <h6 class="m-0">Shipping</h6>
+                                    <p *ngIf="!addressComplation && shippingBody" class="mb-0">Select your preferred
+                                        shipping address and shipping method
+                                        to get your order on time.</p>
+                                </div>
+                                <button mat-icon-button class="border xs" *ngIf="addressComplation"
+                                    (click)="editShipping()"><svg-icon src="./assets/images/ic-edit.svg"></svg-icon>
+                                </button>
+                            </div>
+
+                            <!-- *ngIf="shippingBody" -->
+                            <div class="_details-body mt-0" *ngIf="shippingBody">
+
+                                <div *ngIf="selectAddress">
+                                    <h6 class="xs mb-16p">Select Shipping Address</h6>
+                                    <app-keenslider-block>
+                                        <div class="keen-slider__slide">
+                                            <app-address-block icon="./assets/images/ic-office.svg">
+                                                <div class="info">
+                                                    <strong class="strong">Address 1</strong>
+                                                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka
+                                                    </p>
+                                                </div>
+                                            </app-address-block>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <app-address-block icon="./assets/images/ic-office.svg"
+                                                (click)="openStoreNotFound()">
+                                                <div class="info">
+                                                    <strong class="strong">Address 2</strong>
+                                                    <p class="m-0">786, Indiranagar 150 Feet Road, Bengaluru, Karnataka
+                                                    </p>
+                                                </div>
+                                            </app-address-block>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <app-address-block icon="./assets/images/ic-office.svg">
+                                                <div class="info">
+                                                    <strong class="strong">Address 3</strong>
+                                                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka
+                                                    </p>
+                                                </div>
+                                            </app-address-block>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <app-address-block icon="./assets/images/ic-office.svg">
+                                                <div class="info">
+                                                    <strong class="strong">Address 4</strong>
+                                                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka
+                                                    </p>
+                                                </div>
+                                            </app-address-block>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <app-address-block icon="./assets/images/ic-office.svg">
+                                                <div class="info">
+                                                    <strong class="strong">Address 5</strong>
+                                                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka
+                                                    </p>
+                                                </div>
+                                            </app-address-block>
+                                        </div>
+                                        <div class="keen-slider__slide add">
+                                            <div class="add-item" (click)="addAddress()">
+                                                <svg-icon src="assets/images/ic-round-add.svg"></svg-icon>
+                                                Add New
+                                            </div>
+                                        </div>
+                                    </app-keenslider-block>
+                                </div>
+
+                                <div *ngIf="shippingAdd">
+                                    <h6 class="xs">Add New Shipping Address</h6>
+                                    <div class="row gx-3">
+                                        <div class="col-12">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Address Type *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <app-text-field label="First Name *"></app-text-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <app-text-field label="Last Name *"></app-text-field>
+                                        </div>
+                                        <div class="col-12">
+                                            <app-text-field label="Address *"></app-text-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Country *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>City *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <app-text-field label="Zip Code *"></app-text-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>State *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="!addressComplation" [ngClass]="shippingAdd?'pt-0':''"
+                                    class="checkbox-block d-flex align-items-center justify-content-between flex-wrap mb-24p bb">
+                                    <mat-checkbox color="primary" class="sm">Use this as my billing
+                                        address</mat-checkbox>
+                                    <div class="btns-block" *ngIf="shippingAdd">
+                                        <button mat-stroked-button color="primary" class="sm">Cancel</button>
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="addedAddress()">Add</button>
+                                    </div>
+                                </div>
+                                <div *ngIf="!addressComplation">
+                                    <h6 class="xs mb-16p">Select Shipping Method</h6>
+                                    <mat-radio-group class="custom-radio-list mb-24p" color="primary">
+                                        <mat-radio-button value="1" disabled>
+                                            <div>
+                                                <h6 class="xs">Same Day Shipping</h6>
+                                                <p>Not available at your selected address</p>
+                                            </div>
+                                            <span class="s-charge">Shipping Charge : <span
+                                                    class="text-error">₹150</span></span>
+                                        </mat-radio-button>
+                                        <mat-radio-button value="2">
+                                            <div>
+                                                <h6 class="xs">Next Day Shipping</h6>
+                                                <p>Delivers Tomorrow</p>
+                                            </div>
+                                            <span class="s-charge">Shipping Charge : <span
+                                                    class="text-error">₹150</span></span>
+                                        </mat-radio-button>
+                                        <mat-radio-button value="3" disabled>
+                                            <div>
+                                                <h6 class="xs">Free Shipping</h6>
+                                                <p>Your Order Must be over ₹1000.00</p>
+                                            </div>
+                                            <span class="s-charge">Shipping Charge : <span>₹0</span></span>
+                                        </mat-radio-button>
+                                        <mat-radio-button value="4">
+                                            <div>
+                                                <h6 class="xs">Express Shipping</h6>
+                                                <p>Delivers Between 22 - 26 July 2023</p>
+                                            </div>
+                                            <span class="s-charge">Shipping Charge : <span
+                                                    class="text-error">₹100</span></span>
+                                        </mat-radio-button>
+                                        <mat-radio-button value="5">
+                                            <div>
+                                                <h6 class="xs">Standard Shipping</h6>
+                                                <p>Delivers Between 31 July 2023 - 04 August 2023</p>
+                                            </div>
+                                            <span class="s-charge">Shipping Charge : <span
+                                                    class="text-error">₹40</span></span>
+                                        </mat-radio-button>
+                                    </mat-radio-group>
+                                    <div class="btns-block right">
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="shipingComplate()">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="address-detail" *ngIf="addressComplation">
+                                <li>
+                                    <h6 class="xs"> Shipping Address</h6>
+                                    <p class="_add">56, Residency Road Bengaluru, Karnataka, India ZIP: 560025</p>
+                                </li>
+                                <li>
+                                    <h6 class="xs"> Shipping Method</h6>
+                                    <span class="text-primary">Express Shipping</span>
+                                    <p>Delivers Between 22 - 26 July 2023</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li  [ngClass]="{'complated': billingComplated,'active': billingBody}" [ngClass]="(billingBody? 'active' : '')">
+                        <span class="in">3</span>
+                        <div class="card billing">
+                            <div class="title" [ngClass]="(!billingBody && !billingComplated? 'mb-0' : 'mb-24p')">
+                                <div>
+                                    <h6 class="m-0">Billing & Payment</h6>
+                                    <p *ngIf="!billingComplated && billingBody" class="mb-0">Select your preferred
+                                        billing address and payment method to
+                                        place your order on time.
+                                    </p>
+                                </div>
+                                <button mat-icon-button class="border xs" *ngIf="billingComplated"
+                                    (click)="editBilling()"><svg-icon src="./assets/images/ic-edit.svg"></svg-icon>
+                                </button>
+                            </div>
+
+                            <!-- *ngIf="billingBody" -->
+                            <div class="_details-body" *ngIf="billingBody">
+                                <ul class="address-detail" *ngIf="!editBillAdd">
+                                    <li [ngClass]="!billingComplated?'bb mb-24p' :''">
+                                        <h6 class="xs d-flex align-items-center g-12"> Billing Address <button
+                                                mat-icon-button class="border xs" *ngIf="!billingComplated"
+                                                (click)="editBillAdds()"><svg-icon
+                                                    src="./assets/images/ic-edit.svg"></svg-icon> </button></h6>
+                                        <p class="_add">56, Residency Road Bengaluru, Karnataka, India ZIP: 560025</p>
+                                    </li>
+                                    <li *ngIf="billingComplated">
+                                        <h6 class="xs"> Payment Method <span>(Debit Card)</span></h6>
+                                        <div class="card-detail">
+                                            <div>
+                                                <span class="text-primary">xxxx xxxx xxxx 1256</span>
+                                                <p>Expires on 07/23</p>
+                                            </div>
+                                            <em class="card-img"><img src="assets/images/visa-img.png" alt=""></em>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div *ngIf="editBillAdd">
+                                    <h6 class="xs mb-16p">Billing Address</h6>
+                                    <div class="row gx-3">
+                                        <div class="col-12">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Address Type *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">Residential </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <app-text-field label="First Name *"></app-text-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <app-text-field label="Last Name *"></app-text-field>
+                                        </div>
+                                        <div class="col-12">
+                                            <app-text-field label="Address *"></app-text-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Country *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>City *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <app-text-field label="Zip Code *"></app-text-field>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>State *</mat-label>
+                                                <mat-select panelClass="select-panel">
+                                                    <mat-option value="option1">option1 </mat-option>
+                                                    <mat-option value="option2">option2</mat-option>
+                                                    <mat-option value="option3">option3</mat-option>
+                                                    <mat-option value="option4">option4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="checkbox-block d-flex align-items-center justify-content-between flex-wrap mb-24p pt-0 bb">
+                                        <mat-checkbox color="primary" class="sm">Use same as my shipping
+                                            address</mat-checkbox>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="selectPaymentMethod" class="el-group select-payment-block">
+                                    <h6 class="xs mb-16p">Select Payment Method</h6>
+                                    <ul class="btns-block">
+                                        <li>
+                                            <div class="chip" (click)="toggleChip($event);activeCardF();">
+                                                <svg-icon src="./assets/images/ic-card.svg"></svg-icon> Credit & Debit
+                                                Card
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="chip active" (click)="toggleChip($event);activeUpiF();">
+                                                <svg-icon src="./assets/images/ic-upi.svg" class="s"></svg-icon> UPI
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="chip" (click)="toggleChip($event);activeNetBankingF();">
+                                                <svg-icon src="./assets/images/ic-network.svg"></svg-icon> Netbanking
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="chip" (click)="toggleChip($event);activeOtherPayment();">
+                                                Other
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- <app-keenslider-block>
+                                        <div class="keen-slider__slide">
+                                            <div class="chip" (click)="toggleChip($event);activeCardF();">
+                                                <svg-icon src="./assets/images/ic-card.svg"></svg-icon> Credit & Debit
+                                                Card
+                                            </div>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <div class="chip active" (click)="toggleChip($event);activeUpiF();">
+                                                <svg-icon src="./assets/images/ic-upi.svg" class="s"></svg-icon> UPI
+                                            </div>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <div class="chip" (click)="toggleChip($event);activeNetBankingF();">
+                                                <svg-icon src="./assets/images/ic-network.svg"></svg-icon> Netbanking
+                                            </div>
+                                        </div>
+                                        <div class="keen-slider__slide">
+                                            <div class="chip" (click)="toggleChip($event);activeOtherPayment();">
+                                                Other
+                                            </div>
+                                        </div>
+                                    </app-keenslider-block> -->
+                                </div>
+
+                                <div *ngIf="activeUpi" class="el-group mb-0">
+                                    <h6 class="xs mb-16p text-gray">Saved UPIs</h6>
+                                    <div class="mb-24p">
+                                        <app-keenslider-block>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/ic-g-pay.svg" alt=""></em>
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/ic-bhim-upi.svg" alt=""></em>
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/ic-paytm.svg" alt=""></em>
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="add-item h" (click)="addNewUpi()">
+                                                    <svg-icon src="assets/images/ic-round-add.svg"
+                                                        class="d-flex"></svg-icon>
+                                                    Add New
+                                                </div>
+                                            </div>
+                                        </app-keenslider-block>
+                                    </div>
+                                    <div class="btns-block right">
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="nextBilling()">Next</button>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="addUpi" class="el-group mb-0">
+                                    <h6 class="xs mb-16p text-gray">Add New UPI</h6>
+                                    <mat-form-field appearance="fill" subscriptSizing="dynamic">
+                                        <mat-label>UPI ID</mat-label>
+                                        <input matInput value="demo.user@gpay" />
+                                    </mat-form-field>
+                                    <div class="upi-checkbox-block">
+                                        <mat-checkbox color="primary" class="sm">Securely save this UPI for a faster
+                                            checkout next
+                                            time</mat-checkbox>
+                                        <a href="javascript:void(0);" title="How to find your UPI ID"
+                                            (click)="openDialog()">
+                                            <em class="i"> <svg-icon src="assets/images/ic-help.svg"></svg-icon></em>
+                                            How to find your UPI ID
+                                        </a>
+                                    </div>
+                                    <div class="btns-block right">
+                                        <button mat-stroked-button color="primary" class="sm"
+                                            (click)="activeUpiF()">Cancel</button>
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="activeUpiF()">Add</button>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="activeCard" class="el-group mb-0">
+                                    <h6 class="xs mb-16p text-gray">Saved Cards</h6>
+                                    <div class="mb-24p">
+                                        <app-keenslider-block>
+                                            <div class="keen-slider__slide">
+                                                <app-address-block classes="cc" icon="./assets/images/ic-card.svg">
+                                                    <div class="info">
+                                                        <div>
+                                                            <h6>xxxx xxxx xxxx 4567</h6>
+                                                            <p class="m-0">expires on 02/23</p>
+                                                        </div>
+                                                        <em class="card-img"><img src="assets/images/mastercard-img.png"
+                                                                alt="" /></em>
+                                                    </div>
+                                                </app-address-block>
+                                            </div>
+                                            <div class="keen-slider__slide">
+                                                <app-address-block classes="cc" icon="./assets/images/ic-card.svg">
+                                                    <div class="info">
+                                                        <div>
+                                                            <h6>xxxx xxxx xxxx 4589</h6>
+                                                            <p class="m-0">expires on 07/23</p>
+                                                        </div>
+                                                        <em class="card-img"><img src="assets/images/visa-img.png"
+                                                                alt="" /></em>
+                                                    </div>
+                                                </app-address-block>
+                                            </div>
+                                            <div class="keen-slider__slide add">
+                                                <div class="add-item h" (click)="addNewCard()">
+                                                    <svg-icon src="assets/images/ic-round-add.svg"
+                                                        class="d-flex"></svg-icon>
+                                                    Add New
+                                                </div>
+                                            </div>
+                                        </app-keenslider-block>
+                                    </div>
+                                    <div class="btns-block right">
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="nextBilling()">Next</button>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="addCard" class="el-group mb-0">
+                                    <h6 class="xs mb-16p text-gray">Add New Card</h6>
+                                    <div class="mb-24p">
+                                        <div class="row">
+                                            <div class="col-12 ">
+                                                <app-text-field label="Card Number *"></app-text-field>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <app-text-field label="First Name *"></app-text-field>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <app-text-field label="Last Name *"></app-text-field>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-3">
+                                                <app-text-field label="Expiry Month *"></app-text-field>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-3">
+                                                <app-text-field label="Expiry Year *"></app-text-field>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <app-text-field label="Security Code *"></app-text-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btns-block right">
+                                        <button mat-stroked-button color="primary" class="sm">Cancel</button>
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="activeCardF()">Add</button>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="netBanking" class="el-group internet-banking-block mb-0">
+                                    <h6 class="xs mb-16p text-gray">Internet Banking</h6>
+                                    <div class="mb-24p">
+                                        <app-keenslider-block>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/hdfc.png" alt=""></em> HDFC
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/icici.png" alt=""></em> ICICI
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/sbi.png" alt=""></em> SBI
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/axis.png" alt=""></em> AXIS
+                                                </div>
+                                            </div>
+                                            <div class="keen-slider__slide upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/kotak.png" alt=""></em> KOTAK
+                                                </div>
+                                            </div>
+                                        </app-keenslider-block>
+                                    </div>
+                                    <div class="select-bank">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Other Banks</mat-label>
+                                            <mat-select panelClass="select-panel">
+                                                <mat-option value="option1">Option 1</mat-option>
+                                                <mat-option value="option2">Option 2</mat-option>
+                                                <mat-option value="option3">Option 3</mat-option>
+                                                <mat-option value="option4">Option 4</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="btns-block right">
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="nextBilling()">Next</button>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="otherPayments" class="el-group other-payment-block mb-0">
+                                    <h6 class="xs mb-16p text-gray">Other Payment Methods</h6>
+                                    <div class="mb-24p upi-card-wrap">
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/ic-paypal.svg" alt=""></em> Paypal
+                                                </div>
+                                          
+                                                <div class="upi-card" (click)="toggleUpiCard($event)">
+                                                    <em><img src="assets/images/ic-cod.svg" alt=""></em> Cash on
+                                                    Delivery
+                                                </div>
+                                    </div>
+                                    <div class="btns-block right">
+                                        <button mat-flat-button color="primary" class="sm"
+                                            (click)="nextBilling()">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 ">
+                <div class="order-summary-wrapper">
+                <div class="card space-2 primary" [ngClass]="billingComplated?'mb-30p':''">
+                    <div class="_head sm">
+                        <h6 class="m-0">Order Summary</h6>
+                        <a href="#" class="strong" [routerLink]="'/cart'">Edit Cart</a>
+                    </div>
+
+                    <ul class="item-summary-list">
+                        <li class="list-product-view">
+                            <div class="item-box">
+                                <em class="thumb"
+                                    style="background-image: url(assets/images/rectangle-panner-img.png);"></em>
+                                <div class="center">
+                                    <h6>Regular Paneer</h6>
+                                    <span class="sm">100gm</span>
+                                    <p class="store mb-0">Flavorsome Delights</p>
+                                </div>
+                                <div class="right">
+                                    <span class="price v-list">₹300.00</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-product-view">
+                            <div class="item-box">
+                                <em class="thumb"
+                                    style="background-image: url(assets/images/rectangle-malai-panner-img.png);"></em>
+                                <div class="center">
+                                    <h6>Malai Paneer</h6>
+                                    <span class="sm">100gm</span>
+                                    <p class="store mb-0">Flavorsome Delights</p>
+                                </div>
+                                <div class="right">
+                                    <span class="price v-list">₹300.00</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="order-summary-list pb-0">
+                        <li class="strong">
+                            <p>Sub Total</p>
+                            <span>₹600.00</span>
+                        </li>
+                        <li class="sub-list">
+                            <ul class="w-100">
+                                <li>
+                                    <p>Coupon Discount</p>
+                                    <span class="text-error">- ₹150.00</span>
+                                </li>
+                                <li *ngIf="billingComplated">
+                                    <p>Shipping Charges</p>
+                                    <span>₹100.00</span>
+                                </li>
+                                <li>
+                                    <p>Taxes</p>
+                                    <span>₹20.00</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="lg strong mb-0">
+                            <p>Order Total</p>
+                            <span>₹470.00</span>
+                        </li>
+                    </ul>
+                </div>
+                <button mat-flat-button color="primary" class="w-100" *ngIf="billingComplated"
+                    (click)="openOrderDialog()">Place Your Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="qa-section">
+        <div class="container">
+            <h4 class="text-center">Frequently Asked Questions</h4>
+            <mat-accordion class="basic-accordion">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            How do I proceed to checkout?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>To proceed to checkout, click on the "Checkout" or "View Cart" button in your shopping cart.
+                        Review your selected items, and click on the "Proceed to Checkout" button to start the checkout
+                        process.</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Can I edit my order before completing the checkout?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>To proceed to checkout, click on the "Checkout" or "View Cart" button in your shopping cart.
+                        Review your selected items, and click on the "Proceed to Checkout" button to start the checkout
+                        process.</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Do I need to create an account to checkout?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>To proceed to checkout, click on the "Checkout" or "View Cart" button in your shopping cart.
+                        Review your selected items, and click on the "Proceed to Checkout" button to start the checkout
+                        process.</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            What payment methods are accepted during checkout?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>To proceed to checkout, click on the "Checkout" or "View Cart" button in your shopping cart.
+                        Review your selected items, and click on the "Proceed to Checkout" button to start the checkout
+                        process.</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Is my personal information secure during checkout?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>To proceed to checkout, click on the "Checkout" or "View Cart" button in your shopping cart.
+                        Review your selected items, and click on the "Proceed to Checkout" button to start the checkout
+                        process.</p>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div class="load-more-block">
+                <a class="sm-text strong" title="View More">
+                    View More <img src="./assets/images/ic-fill-down.svg" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+</app-layout>

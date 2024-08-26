@@ -1,0 +1,318 @@
+<div class="title">
+    <div class="title-left">
+        <h4>Your Orders</h4>
+        <p>4 RESULTS</p>
+    </div>
+    <div class="title-right">
+        <div class="filter-select" (click)="filterOrder()">
+            Filters
+        </div>
+        <mat-form-field class="select short-select" subscriptSizing="dynamic">
+            <label>Sort By : </label>
+            <mat-select value="option2" panelClass="myPanel short">
+                <mat-option value="option1">Order New to Old</mat-option>
+                <mat-option value="option2">Order Old to New</mat-option>
+                <mat-option value="option3">Order Total High to Low</mat-option>
+                <mat-option value="option4">Order Total Low to High</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="product-list-table-wrapper">
+    <ul class="product-list-table">
+        <li class="_head">
+            <ul class="_left">
+                <li>
+                    <p>#568SDFRE6DD</p>
+                    <span>Order ID</span>
+                </li>
+                <li>
+                    <p>25/07/2023</p>
+                    <span>Order Placed On</span>
+                </li>
+                <li>
+                    <p>₹460.00</p>
+                    <span>Total</span>
+                </li>
+            </ul>
+            <span class="primary-t-chip orange">Order Placed</span>
+        </li>
+        <li class="_policy-d">
+            <p class="m-0">Cancelation available till 08/07/2023 <a href="javascript:void(0);"
+                    title="Cancelation Policy" class="strong">Cancelation Policy</a></p>
+            <a href="javascript:void(0);" title="Cancel Order" class="strong" (click)="openDialog()">Cancel Order</a>
+        </li>
+        <li class="_policy-d">
+            <p class="text-error m-0">Cancellation request has been submitted for this order. Our customer executive wil
+                contact you shortly to solve your problem.</p>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/rectangle-classic-roast-beef.png);"></em>
+                <div class="center">
+                    <h6>Classic Roast Beef</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100 GM
+                        </li>
+                        <li>
+                            1 Unit
+                        </li>
+                        <li>
+                            ₹210.00
+                        </li>
+                    </ul>
+                    <p class="store">Flavorsome Delights</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/rectangle-panner-img.png);"></em>
+                <div class="center">
+                    <h6>Regular Paneer</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100 GM
+                        </li>
+                        <li>
+                            1 Unit
+                        </li>
+                        <li>
+                            ₹300.00
+                        </li>
+                    </ul>
+                    <p class="store">The Deli Hub</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+        <li class="btns-block right">
+            <button mat-stroked-button color="primary" class="xs">Re-Order</button>
+            <button mat-stroked-button color="primary" class="xs" [routerLink]="'/order-tracker'">Track Order</button>
+            <button mat-flat-button color="primary" class="xs" [routerLink]="'/order-details'">View Details</button>
+        </li>
+    </ul>
+</div>
+
+<div class="product-list-table-wrapper">
+    <ul class="product-list-table">
+        <li class="_head">
+            <ul class="_left">
+                <li>
+                    <p>#AD556GHR589</p>
+                    <span>Order ID</span>
+                </li>
+                <li>
+                    <p>26/06/2023</p>
+                    <span>Order Placed On</span>
+                </li>
+                <li>
+                    <p>₹400.00</p>
+                    <span>Total</span>
+                </li>
+            </ul>
+            <span class="primary-t-chip yellow">Out for Delivery</span>
+        </li>
+        <li class="_policy-d">
+            <p class="m-0">Return available till 08/07/2023 <a href="javascript:void(0);" title="Return Policy"
+                    class="strong">Return Policy</a></p>
+            <a href="javascript:void(0);" title="Return Order" class="strong">Return Order</a>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/signature-smoked-salmon.png);"></em>
+                <div class="center">
+                    <h6>Smoked Salmon Platter</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100 GM
+                        </li>
+                        <li>
+                            1 Unit
+                        </li>
+                        <li>
+                            ₹150.00
+                        </li>
+                    </ul>
+                    <p class="store">Flavorsome Delights</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/rectangle-mediterranean-hummus.png);"></em>
+                <div class="center">
+                    <h6>Mediterranean Hummus</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100 GM
+                        </li>
+                        <li>
+                            1 Unit
+                        </li>
+                        <li>
+                            ₹100.00
+                        </li>
+                    </ul>
+                    <p class="store">The Deli Hub</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+        <li class="show-all-block">
+            <a href="javascript:void(0);" title="Show All " class="strong">
+                Show All <img src="./assets/images/ic-fill-down.svg" />
+            </a>
+        </li>
+        <li class="btns-block right">
+            <button mat-stroked-button color="primary" class="xs">Re-Order</button>
+            <button mat-stroked-button color="primary" class="xs" [routerLink]="'/order-tracker'">Track Order</button>
+            <button mat-flat-button color="primary" class="xs" [routerLink]="'/order-details'">View Details</button>
+        </li>
+    </ul>
+</div>
+
+<div class="product-list-table-wrapper">
+    <ul class="product-list-table">
+        <li class="_head">
+            <ul class="_left">
+                <li>
+                    <p>#568SDFRE6DD</p>
+                    <span>Order ID</span>
+                </li>
+                <li>
+                    <p>16/06/2023</p>
+                    <span>Order Placed On</span>
+                </li>
+                <li>
+                    <p>20/06/2023</p>
+                    <span>Order Delivered On</span>
+                </li>
+                <li>
+                    <p>₹400.00</p>
+                    <span>Total</span>
+                </li>
+            </ul>
+            <span class="primary-t-chip green">Delivered</span>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/rectangle-mediterranean-hummus.png);"></em>
+                <div class="center">
+                    <h6>Mediterranean Hummus</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100gm
+                        </li>
+                        <li>
+                            4 Unit
+                        </li>
+                        <li>
+                            ₹100.00
+                        </li>
+                    </ul>
+                    <p class="store">The Deli Hub</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="btns-block right">
+            <button mat-stroked-button color="primary" class="xs">Re-Order</button>
+            <button mat-stroked-button color="primary" class="xs">Download Invoice</button>
+            <button mat-flat-button color="primary" class="xs" [routerLink]="'/order-details'">View Details</button>
+        </li>
+    </ul>
+</div>
+
+<div class="product-list-table-wrapper">
+    <ul class="product-list-table">
+        <li class="_head">
+            <ul class="_left">
+                <li>
+                    <p>#568SDFRE6DD</p>
+                    <span>Order ID</span>
+                </li>
+                <li>
+                    <p>15/05/2023</p>
+                    <span>Order Placed On</span>
+                </li>
+                <li>
+                    <p>21/05/2023</p>
+                    <span>Order Delivered On</span>
+                </li>
+                <li>
+                    <p>₹700.00</p>
+                    <span>Total</span>
+                </li>
+            </ul>
+            <span class="primary-t-chip green">Delivered</span>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/rectangle-sourdough-baguette.png);"></em>
+                <div class="center">
+                    <h6>Sourdough Baguette</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100 GM
+                        </li>
+                        <li>
+                            1 Unit
+                        </li>
+                        <li>
+                            ₹200.00
+                        </li>
+                    </ul>
+                    <p class="store">Flavorsome Delights</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+        <li class="list-product-view">
+            <div class="item-box">
+                <em class="thumb" style="background-image: url(assets/images/rectangle-mediterranean-hummus.png);"></em>
+                <div class="center">
+                    <h6>Mediterranean Hummus</h6>
+                    <ul class="additional-info-list">
+                        <li>
+                            100gm
+                        </li>
+                        <li>
+                            5 Unit
+                        </li>
+                        <li>
+                            ₹500.00
+                        </li>
+                    </ul>
+                    <p class="store">The Deli Hub</p>
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0);" title="View Item" class="strong">View Item</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="btns-block right">
+            <button mat-stroked-button color="primary" class="xs">Re-Order</button>
+            <button mat-stroked-button color="primary" class="xs">Download Invoice</button>
+            <button mat-flat-button color="primary" class="xs" [routerLink]="'/order-details'">View Details</button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,133 @@
+<div mat-dialog-title>
+    <h5 class="m-0">Pickup Schedule</h5>
+    <button mat-icon-button mat-dialog-close><img src="./assets/images/ic-close.svg" /></button>
+</div>
+
+<mat-dialog-content>
+
+    <div class="store-view-block sm lp">
+        <div class="_left">
+            <ul class="additional-info-list">
+                <li class="name">
+                    <em class="i lg"><img src="./assets/images/ic-storefront.svg" /></em>
+                    <h6 class="m-0">Flavorsome Delights</h6>
+                    <div class="rating">4.0<em class="ic-star"></em></div>
+                </li>
+                <li>
+                    <em><img src="./assets/images/ic-loc-pin.svg" alt="" /></em>
+                    3km
+                </li>
+                <li>
+                    <em><img src="./assets/images/ic-clock.svg" alt="" /></em>
+                    20min
+                </li>
+            </ul>
+            <div class="text-icon"> <em class="i"><img src="./assets/images/ic-location-on.svg" /></em>456, Fictitious
+                Avenue, Imaginary
+                Colony, Mysuru, Karnataka, India</div>
+        </div>
+        <div class="btns-block">
+            <button mat-button color="primary" class="sm">
+                Change Location
+            </button>
+            <button mat-stroked-button color="primary" class="sm">
+                View Store
+            </button>
+        </div>
+    </div>
+    
+    <div class="mb-24p">
+        <mat-accordion class="product-accordion">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header >
+                    <div class="list-product-view" (click)="$event.stopPropagation();">
+                        <div class="item-box">
+                            <em class="thumb"
+                                style="background-image: url(assets/images/chicken-salami-img.png);"></em>
+                            <div class="center">
+                                <h6>Chicken Salami</h6>
+                                <div class="rating-wrap">
+                                    <div class="review">
+                                        <div class="rating">4.5<em class="ic-star"></em></div>1256 Reviews
+                                    </div>
+                                    <!-- <span class="price">₹150.00</span> -->
+                                </div>
+                            </div>
+                            <div class="right">
+                                <app-counter-btn-wrapper [onlyCounter]=true></app-counter-btn-wrapper>
+                                <span class="price v-list">₹300.00</span>
+                                <button mat-icon-button class="border sm"><img src="assets/images/ic-delete.svg" /></button>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel-header>
+                <h6 class="xs">Quantity</h6>
+                <mat-chip-listbox class="selectable sm">
+                    <mat-chip-option>100gm</mat-chip-option>
+                    <mat-chip-option selected>200gm</mat-chip-option>
+                    <mat-chip-option>500gm</mat-chip-option>
+                    <mat-chip-option>1kg</mat-chip-option>
+                    <mat-chip-option>5kg</mat-chip-option>
+                </mat-chip-listbox>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <div class="list-product-view"  (click)="$event.stopPropagation();">
+                        <div class="item-box">
+                            <em class="thumb"
+                                style="background-image: url(assets/images/chicken-salami-img.png);"></em>
+                            <div class="center">
+                                <h6>Chicken Salami</h6>
+                                <div class="rating-wrap">
+                                    <div class="review">
+                                        <div class="rating">4.5<em class="ic-star"></em></div>1256 Reviews
+                                    </div>
+                                    <!-- <span class="price">₹150.00</span> -->
+                                </div>
+                            </div>
+                            <div class="right">
+                                <app-counter-btn-wrapper [onlyCounter]=true></app-counter-btn-wrapper>
+                                <span class="price v-list">₹300.00</span>
+                                <button mat-icon-button class="border sm"><img src="assets/images/ic-delete.svg" /></button>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel-header>
+                <h6>Quantity</h6>
+                <mat-chip-listbox class="selectable sm">
+                    <mat-chip-option>100gm</mat-chip-option>
+                    <mat-chip-option selected>200gm</mat-chip-option>
+                    <mat-chip-option>500gm</mat-chip-option>
+                    <mat-chip-option>1kg</mat-chip-option>
+                    <mat-chip-option>5kg</mat-chip-option>
+                </mat-chip-listbox>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <h6 class="xs">Pickup Info</h6>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4">
+            <app-text-field label="Name" img="assets/images/ic-user.svg"></app-text-field>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <app-text-field label="Phone Number" img="assets/images/ic-phone.svg"></app-text-field>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <app-text-field label="Email" img="assets/images/ic-mail.svg"></app-text-field>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <app-text-field label="Date" img="assets/images/ic-calendar.svg"></app-text-field>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <app-text-field label="Time" img="assets/images/ic-clock.svg"></app-text-field>
+        </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" class="sm" mat-dialog-close>Cancel</button>
+    <button mat-stroked-button color="primary" class="sm" mat-dialog-close>Add More Item</button>
+    <button mat-flat-button color="primary" class="sm" [mat-dialog-close]="true" cdkFocusInitial
+        (click)="pickupSheduleSuccess()">Schedule</button>
+</mat-dialog-actions>

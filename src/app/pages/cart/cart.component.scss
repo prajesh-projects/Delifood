@@ -1,0 +1,117 @@
+@import '../../../assets/scss/base/break-points';
+
+::ng-deep .title {
+    margin-bottom: 28px;
+    @include bp (sm-max) { 
+        margin-bottom: 20px;
+    }
+}
+
+::ng-deep .main-content {
+    @include bp (md-max) {
+    padding-left: 0;
+    padding-right: 0;
+    }
+}
+
+.cart-wrapper {
+    display: flex;
+    gap: 40px;
+
+    a.text-error:hover {
+        color: #ff3535;
+    }
+
+    @include bp (lg-max) {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    @include bp (sm-max) {
+        .table-block td {
+            padding: 19px 10px;
+        }
+
+        .table-block th {
+            padding: 10px;
+        }
+    }
+
+    .cart-table-block {
+        @include bp (lg-max) {
+            width: 100%;
+        }
+    }
+
+    .order-summary-block {
+        min-width: 387px;
+        max-width: 387px;
+
+        @include bp (lg-max) {
+            width: 100%; 
+            min-width: auto;
+            max-width: 100%;
+            display: flex;
+            gap: 20px;
+            > * {
+                width: 50%;
+                margin-bottom: 0;
+            }
+        }
+
+        @include bp (sm-max) {
+           display: block;
+           > * {
+                width: 100%;
+            }
+        }
+
+        .textarea-suggestion {
+            margin-bottom: -20px;
+        }
+    }
+
+    .with-sub {
+        margin-bottom: 12px;
+
+        span {
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 400;
+            color: #666666;
+            display: inline-block;
+            margin-left: 3px;
+        }
+    }
+
+    .table-block th,
+    .table-block td {
+        white-space: nowrap;
+    }
+
+    ::ng-deep .select.mat-mdc-form-field {
+        .mat-mdc-select {
+            font-size: 16px;
+            line-height: 20px;
+            color: #222222;
+        }
+
+        .mat-mdc-select-value {
+            width: auto;
+        }
+
+        .mat-mdc-form-field-focus-overlay {
+            display: none;
+        }
+    }
+
+    ::ng-deep .counter-btn-wrapper .counter-btns .mat-mdc-icon-button.mat-mdc-button-base {
+        width: 30px !important;
+        min-width: 30px !important;
+        height: 30px !important;
+    }
+
+    .mat-mdc-form-field.mh .mdc-text-field {
+        height: 110px;
+    }
+}

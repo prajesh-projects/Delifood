@@ -1,0 +1,30 @@
+<div mat-dialog-title>
+  <h5 class="m-0">Choose Your Location</h5>
+  <button mat-icon-button mat-dialog-close><img src="./assets/images/ic-close.svg" /></button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+  
+
+  <div class="current-loc-block">
+      <div class="top" *ngIf="hide">
+        <em class="i"><img src="./assets/images/ic-location.svg" alt=""/></em>
+        456, Indiranagar 100 Feet Road, Bengaluru, Karnataka 
+      </div>
+      <div class="bottom" (click)="addressVisible()">
+        <em><img src="./assets/images/ic-my-location.svg" alt=""/></em>
+        <div class="info">
+          <h6>Detect Your Current Location</h6>
+          <span>Using GPS</span>
+        </div>
+      </div>
+  </div>
+
+  <h6 class="sm">Saved Address</h6>
+<app-address-slider></app-address-slider>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
+  <button mat-flat-button color="primary"[mat-dialog-close]="true" cdkFocusInitial  [disabled]="!hide" [routerLink]="'/stores'">Save</button>
+</mat-dialog-actions>

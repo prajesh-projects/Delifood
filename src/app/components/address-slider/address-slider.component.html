@@ -1,0 +1,50 @@
+<div class="keen-slider-multiple">
+    <div class="keen-slider" #sliderRef>
+        <div class="keen-slider__slide">
+            <app-address-block icon="./assets/images/ic-office.svg">
+                <div class="info">
+                    <strong class="strong">Address 1</strong>
+                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka </p>
+                </div>
+            </app-address-block>
+        </div>
+        <div class="keen-slider__slide">
+            <app-address-block icon="./assets/images/ic-location.svg">
+                <div class="info">
+                    <strong class="strong">Address 2</strong>
+                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka </p>
+                </div>
+            </app-address-block>
+        </div>
+        <div class="keen-slider__slide">
+            <app-address-block icon="./assets/images/ic-location.svg">
+                <div class="info">
+                    <strong class="strong">Address 3</strong>
+                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka </p>
+                </div>
+            </app-address-block>
+        </div>
+        <div class="keen-slider__slide">
+            <app-address-block icon="./assets/images/ic-location.svg">
+                <div class="info">
+                    <strong class="strong">Address 4</strong>
+                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka </p>
+                </div>
+            </app-address-block>
+        </div>
+        <div class="keen-slider__slide">
+            <app-address-block icon="./assets/images/ic-location.svg">
+                <div class="info">
+                    <strong class="strong">Address 5</strong>
+                    <p class="m-0">456, Indiranagar 100 Feet Road, Bengaluru, Karnataka </p>
+                </div>
+            </app-address-block>
+        </div>
+    </div>
+    <div class="slider-nav">
+        <div class="arrow arrow--left" [ngClass]="(currentSlide === 0 ? 'arrow--disabled' : '')"
+            (click)="slider.prev()"><img src="./assets/images/ic-left.svg" alt="" /></div>
+        <div class="arrow arrow--right" [ngClass]="{'arrow--disabled':  nextDisabled}" (click)="slider.next()"><img
+                src="./assets/images/ic-right.svg" alt="" /></div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- <div class="item-box" [ngClass]="Class" [routerLink]="RouterLink"> -->
+<div class="item-box" [ngClass]="Class">
+    <em class="thumb" style="background-image: url({{Img}});"></em>
+    <div class="center">
+        <h6>{{ItemName}} <span *ngIf="Unit != null">{{Unit}}</span></h6>
+        <p class="location" *ngIf="Location != null">{{Location}}</p>
+        <p class="store"  *ngIf="ShopName != null">{{ShopName}}</p>
+        <div class="rating-wrap"  *ngIf="TotalRate != null">
+            <div class="review">
+                <div class="rating">{{TotalRate}}<em class="ic-star"></em></div>
+                <span *ngIf="TotalReview != null">{{TotalReview}} Reviews</span>
+            </div>
+            <span class="price v-grid">{{Price}}</span>
+        </div>
+        <ul class="additional-info-list"  *ngIf="Location != null">
+            <li>
+                <div class="rating">4.0<em class="ic-star"></em></div>
+            </li>
+            <li>
+                <em><img src="./assets/images/ic-loc-pin.svg" alt="" /></em>
+                3km
+            </li>
+            <li>
+                <em><img src="./assets/images/ic-clock.svg" alt="" /></em>
+                20min
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <app-counter-btn-wrapper *ngIf="CounterBtn" [onlyCounter]=true></app-counter-btn-wrapper>
+        <span class="price v-list">{{Price}}</span>
+        <div class="inline-view">
+            <button mat-stroked-button color="primary" class="d-block" *ngIf="Location == null" >Add to Cart</button>
+            <p class="d-block text-center pick-link" *ngIf="pickSchedule">Already Added In Your Pickup</p>
+            <a href="javascript:void(0);" title="Schedule a Pickup" class="d-block text-center strong pick-link" (click)="openDialog()" *ngIf="!pickSchedule && pickSchedule != null">Schedule a Pickup</a>
+        </div>
+        <button mat-stroked-button color="primary" class="d-block" *ngIf="Location != null" >View Store</button>
+    </div>
+</div>

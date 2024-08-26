@@ -1,0 +1,6 @@
+<div class="rt-progress">
+    <div class="rating">{{prefix}}<svg-icon src="assets/images/ic-star.svg"  class="i f-yellow" [applyClass]="false"></svg-icon></div>
+    <mat-progress-bar class="secondary" mode="determinate" [ngStyle]="{'--width': value+'%'}"
+        [value]="value"></mat-progress-bar>
+    <span class="per">{{value}}%</span>
+</div>

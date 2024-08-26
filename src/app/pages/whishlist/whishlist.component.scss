@@ -1,0 +1,53 @@
+@import "base/break-points";
+@import "base/colors";
+
+
+title {
+    margin-bottom: 34px;
+
+    @include bp(sm-max) {
+        margin-bottom: 24px;
+    }
+
+    @include bp(xs-max) {
+        margin-bottom: 20px;
+    }
+}
+
+::ng-deep .main-content {
+    @include bp (md-max) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.grid-product-view>li {
+    width: 33.33%;
+
+    ::ng-deep .item-box {
+        .thumb {
+            border-radius: 16px;
+        }
+
+        .store {
+            background-size: 18px;
+            background-position: top 0px left 2px;
+        }
+    }
+
+    @include bp (sm-max) {
+        width: 50%;
+    }
+
+    @include bp (xs-max) {
+        width: 100%;
+    }
+}
+
+.list-product-view>li {
+    ::ng-deep .item-box {
+        .thumb {
+            border-radius: 10px;
+        }
+    }
+}

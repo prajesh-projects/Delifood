@@ -1,0 +1,52 @@
+@import "base/break-points";
+@import "base/colors";
+
+.counter-btn-wrapper {
+    display: inline-flex;
+    align-items: center;
+    background-color: $primary-500;
+    border-radius: 8px;
+    min-height: 48px;
+    color: #fff;
+
+    .counter-btns {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-right: 1px solid #FFFFFF4D;
+        padding: 7px 16px;
+
+        .mat-mdc-icon-button.mat-mdc-button-base {
+            --mdc-icon-button-icon-size: 16px;
+            border-radius: 50%;
+            width: 24px;
+            min-width: 24px;
+            height: 24px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            color: #666;
+            line-height: 1;
+        }
+    }
+
+    &.only-counter {
+        background-color: transparent;
+        color: #222;
+
+        .counter-btns {
+            padding: 0;
+
+            .mat-mdc-icon-button.mat-mdc-button-base {
+                background-color: $primary-500;
+                color: #fff;
+
+                svg path {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+}

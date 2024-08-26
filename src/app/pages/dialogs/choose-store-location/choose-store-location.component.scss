@@ -1,0 +1,16 @@
+@import "base/break-points";
+h6 {
+    margin-bottom: 12px;
+}
+.selectable.mat-mdc-chip-set.mdc-evolution-chip-set .mdc-evolution-chip-set__chips {
+    gap: 14px;
+}
+
+.row {
+    --bs-gutter-x:16px;
+}
+.mb-30p {
+    @include bp (xs-max) {
+        margin-bottom: 20px !important;
+    }
+}

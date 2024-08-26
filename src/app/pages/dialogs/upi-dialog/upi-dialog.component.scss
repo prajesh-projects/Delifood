@@ -1,0 +1,243 @@
+@import "base/break-points";
+@import "base/colors";
+
+.upi-dialog {
+    min-height: 60vh;
+    max-height: 514px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15% 0 0;
+
+
+    @media (max-height:775.98px) {
+        min-height: auto;
+        padding: 80px 0;
+    }
+
+    @include bp(lg-max) {
+        padding: 80px 0;
+        justify-content: center;
+    }
+
+    h4 {
+        margin-bottom: 40px;
+
+        @include bp(sm-max) {
+            margin-bottom: 30px;
+        }
+
+        @include bp(xs-max) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .upi-card-wrap {
+        gap: 24px;
+
+        @include bp(xs-max) {
+            gap: 10px;
+
+            .upi-card {
+                min-width: 60px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+    }
+}
+
+.upi-details {
+    .upi-card-wrap {
+        padding: 24px 30px;
+        border-bottom: 1px solid $gray-400;
+        display: flex;
+        gap: 20px;
+
+        @include bp(md-max) {
+            padding: 14px 15px;
+        }
+
+        @include bp(sm-max) {
+            gap: 10px;
+        }
+
+        .upi-card {
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            border-radius: 50%;
+
+            @include bp(md-max) {
+                width: 60px;
+                height: 60px;
+                min-width: 60px;
+            }
+
+            &.active {
+                border-color: #B3DDFF;
+                background-color: #E6F4FF;
+            }
+        }
+    }
+
+    .num-round {
+        margin-right: 12px;
+
+        @include bp(xs-max) {
+            margin-right: 6px;
+        }
+    }
+
+    ::ng-deep .mat-accordion .mat-expansion-panel {
+        --mat-expansion-header-collapsed-state-height: 88px;
+        --mat-expansion-header-expanded-state-height: 88px;
+
+        .mat-expansion-panel-header-title {
+            --mat-expansion-header-text-color: #222 !important;
+        }
+
+        margin-bottom: 0 !important;
+
+        @include bp(md-max) {
+            --mat-expansion-header-collapsed-state-height: 60px;
+            --mat-expansion-header-expanded-state-height: 60px;
+        }
+
+        .mat-expansion-panel-header {
+            font-size: 20px;
+            line-height: 24px;
+            padding: 4px 30px;
+            height: 88px;
+
+            @include bp(md-max) {
+                font-size: 18px;
+                line-height: 22px;
+                padding: 4px 15px;
+                height: 60px;
+            }
+
+            @include bp(sm-max) {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+
+        .mat-expansion-panel-body {
+            padding: 0 30px 30px;
+
+            @include bp(md-max) {
+                padding: 0 15px 15px;
+            }
+        }
+
+        .mat-expansion-panel-spacing {
+            margin: 0;
+        }
+    }
+
+    ::ng-deep .keen-slider-multiple .slider-nav {
+        @include bp(lg-max) {
+            margin-top: 10px !important;
+        }
+
+        @include bp(sm-max) {
+            margin-top: 4px !important;
+        }
+
+        .arrow {
+            width: 34px;
+            min-width: 34px;
+            height: 34px;
+            box-shadow: none;
+        }
+    }
+}
+
+.img-info-block {
+    display: flex;
+
+    @include bp(lg-max) {
+        align-items: center;
+    }
+
+    @include bp(sm-max) {
+        flex-wrap: wrap;
+    }
+
+    ._img {
+        display: flex;
+        width: 47.8%;
+
+        // max-width: 443px;
+        @include bp(sm-max) {
+            width: 100%;
+            order: -1;
+            max-width: 360px;
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
+
+    ._info {
+        width: 52.2%;
+        // width: calc(100% - 443px);
+        // max-width: calc(100% - 443px);
+        font-size: 20px;
+        line-height: 30px;
+        color: #666;
+        padding: 40px 30px 40px 43px;
+
+        @include bp(lg-max) {
+            padding: 10px 0 10px 20px;
+        }
+
+        @include bp(md-max) {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        @include bp(sm-max) {
+            font-size: 16px;
+            line-height: 26px;
+            text-align: center;
+            width: 100%;
+            padding: 18px 0 0 !important;
+        }
+
+        strong {
+            color: #222;
+            font-weight: 500;
+        }
+    }
+
+    .step {
+        display: inline-block;
+        min-width: 79px;
+        height: 40px;
+        border-radius: 50px;
+        border: 1px solid #B3DDFF;
+        background-color: #E6F4FF;
+        color: #222;
+        font-size: 16px;
+        padding: 6px 16px;
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include bp(sm-max) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &.reverse {
+        flex-direction: row-reverse;
+
+        ._info {
+            padding: 40px 43px 40px 0px;
+
+            @include bp(lg-max) {
+                padding: 10px 20px 10px 0;
+            }
+        }
+    }
+}

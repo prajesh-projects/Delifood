@@ -1,0 +1,41 @@
+<div class="login-wrapper">
+    <div class="_header">
+        <a href="javascript:void(0);" title="Deli Food"><img src="./assets/images/logo.svg" /></a>
+        <button mat-icon-button [routerLink]="'/home'" (click)="globalVariablesService.isLogin = false"><img
+                src="./assets/images/ic-close.svg" /></button>
+    </div>
+    <div class="_body">
+        <div class="_left">
+
+            <!-- Personalized block -->
+            <!-- *ngIf="personalBlock" -->
+            <div class="personal-block">
+                <h3 class="fade-border">
+                    Take a Moment to Personalize Your Account
+                </h3>
+                <h6>Your Dietary Preferences</h6>
+                <div class="checkbox-chips">
+                    <mat-chip-option>Vegan</mat-chip-option>
+                    <mat-chip-option>Gluten-Free</mat-chip-option>
+                    <mat-chip-option>Dairy-Free</mat-chip-option>
+                    <mat-chip-option>Nut-Free</mat-chip-option>
+                    <mat-chip-option>Organic</mat-chip-option>
+                    <mat-chip-option>Allergen-Free</mat-chip-option>
+                    <mat-chip-option>Sugar-Free</mat-chip-option>
+                    <mat-chip-option>Paleo</mat-chip-option>
+                    <mat-chip-option>Keto</mat-chip-option>
+                </div>
+
+                <mat-checkbox class="lg" color="primary">Keep me updated with the latest news and offers</mat-checkbox>
+
+                <div class="btns-block">
+                    <button mat-flat-button color="primary" [routerLink]="['/home']">Done</button>
+                    <button mat-stroked-button color="primary" [routerLink]="['/home']">Skip</button>
+                </div>
+            </div>
+        </div>
+        <div class="_right">
+            <app-img-slider></app-img-slider>
+        </div>
+    </div>
+</div>

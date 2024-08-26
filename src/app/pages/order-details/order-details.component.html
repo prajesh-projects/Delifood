@@ -1,0 +1,278 @@
+<app-layout>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Home" [routerLink]="'/home'">Home</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Home" [routerLink]="'/my-account'">My
+                Account</a>
+            <a href="javascript:void(0);" class="breadcrumb-link" title="Home"
+                [routerLink]="'/my-account/Orders'">Orders</a>
+            <span class="breadcrumb-text">Order Details</span>
+        </div>
+        <div class="title">
+            <h4 class="d-flex">Order ID : 568SDFRE6DD <span class="primary-t-chip orange">Order Placed</span></h4>
+            <p>Order Placed On : <span class="text-lg">25/07/2023</span></p>
+        </div>
+
+        <div class="order-details-row">
+            <div class="_left">
+                <div class="el-group">
+                    <h6 class="mb-16p">Order Items</h6>
+                    <div class="product-list-table-wrapper">
+                        <ul class="product-list-table">
+                            <li class="list-product-view">
+                                <div class="item-box">
+                                    <em class="thumb"
+                                        style="background-image: url(assets/images/rectangle-classic-roast-beef.png);"></em>
+                                    <div class="center">
+                                        <h6>Classic Roast Beef</h6>
+                                        <ul class="additional-info-list">
+                                            <li>
+                                                100 GM
+                                            </li>
+                                            <li>
+                                                1 Unit
+                                            </li>
+                                            <li>
+                                                ₹210.00
+                                            </li>
+                                        </ul>
+                                        <p class="store">Flavorsome Delights</p>
+                                    </div>
+                                    <div class="right">
+                                        <a href="javascript:void(0);" title="View Item" class="strong sm-text">View
+                                            Item</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-product-view">
+                                <div class="item-box">
+                                    <em class="thumb"
+                                        style="background-image: url(assets/images/rectangle-panner-img.png);"></em>
+                                    <div class="center">
+                                        <h6>Regular Paneer</h6>
+                                        <ul class="additional-info-list">
+                                            <li>
+                                                100 GM
+                                            </li>
+                                            <li>
+                                                1 Unit
+                                            </li>
+                                            <li>
+                                                ₹300.00
+                                            </li>
+                                        </ul>
+                                        <p class="store">The Deli Hub</p>
+                                    </div>
+                                    <div class="right">
+                                        <a href="javascript:void(0);" title="View Item" class="strong sm-text">View
+                                            Item</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="el-group">
+                    <h6 class="mb-16p">Order Tracking</h6>
+                    <div class="details-stepper-card">
+                        <ul class="details-stepper tracker">
+                            <li class="active">
+                                <span class="in"><svg-icon class="f-primary"
+                                        src="assets/images/ic-checkout.svg"></svg-icon></span>
+                                <div class="_head">
+                                    <h6 class="sm">Order Placed</h6>
+                                    <span>Order Placed On 25/07/2023</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="in"><svg-icon class="f-primary"
+                                        src="assets/images/ic-shopping-bag2.svg"></svg-icon></span>
+                                <div class="_head">
+                                    <h6 class="sm">Order Confirmation</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="in"><svg-icon class="s-primary"
+                                        src="assets/images/ic-delivery-boy.svg"></svg-icon></span>
+                                <div class="_head">
+                                    <h6 class="sm">Order Dispatched</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="in"><svg-icon class="f-primary"
+                                        src="assets/images/ic-delivert-truk.svg"></svg-icon></span>
+                                <div class="_head">
+                                    <h6 class="sm">In Transit</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="in"><svg-icon class="f-primary"
+                                        src="assets/images/ic-delivery-scooter.svg"></svg-icon></span>
+                                <div class="_head">
+                                    <h6 class="sm">Out for Delivery</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="in"><svg-icon class="f-primary"
+                                        src="assets/images/ic-delivered.svg"></svg-icon></span>
+                                <div class="_head">
+                                    <h6 class="sm">Delivered</h6>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="javascript:void(0);" class="strong sm-text" title="View Details">View Details</a>
+                    </div>
+                </div>
+                <div class="el-group mb-0">
+                    <h6 class="mb-16p">Rate this order</h6>
+                    <div class="rate-review-block" *ngIf="foodEx">
+                        <h6>How was your food experience ? </h6>
+                        <app-rating [star]="0"></app-rating>
+                        <mat-form-field appearance="fill" class="w-100 mh" subscriptSizing="dynamic">
+                            <textarea matInput placeholder="Write a Review ..."></textarea>
+                        </mat-form-field>
+                        <div class="links">
+                            <div></div>
+                            <a (click)="nextDeliveryEx()" title="Rate your delivery experience">
+                                Rate your delivery experience <svg-icon
+                                    src="assets/images/ic-arrow-right-alt.svg"></svg-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rate-review-block" *ngIf="deliveryEx">
+                        <h6>How was your delivery experience ? </h6>
+                        <app-rating [star]="0"></app-rating>
+                        <mat-form-field appearance="fill" class="w-100 mh" subscriptSizing="dynamic">
+                            <textarea matInput placeholder="Write a Review ..."></textarea>
+                        </mat-form-field>
+                        <div class="links">
+                            <a (click)="nextFoodEx()" title="Rate your food experience">
+                                <svg-icon src="assets/images/ic-arrow-left-alt.svg"></svg-icon>
+                                Rate your food experience
+                            </a>
+                            <a (click)="nextShopEx()" title="Rate your shop experience">
+                                Rate your shop experience <svg-icon
+                                    src="assets/images/ic-arrow-right-alt.svg"></svg-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rate-review-block" *ngIf="shopEx">
+                        <h6>How was your shop experience ? </h6>
+                        <app-rating [star]="0"></app-rating>
+                        <mat-form-field appearance="fill" class="w-100 mh" subscriptSizing="dynamic">
+                            <textarea matInput placeholder="Write a Review ..."></textarea>
+                        </mat-form-field>
+                        <div class="links">
+                            <a (click)="nextDeliveryEx()" title="Rate your Delivery experience">
+                                <svg-icon src="assets/images/ic-arrow-left-alt.svg"></svg-icon>
+                                Rate your Delivery experience
+                            </a>
+                            <button mat-flat-button color="primary" class="xs xs-text" (click)="nextRevieList()">
+                                Submit</button>
+                        </div>
+                    </div>
+
+
+                    <ul class="rate-review-list" *ngIf="revieList">
+                        <li>
+                            <h6 class="sm">How was your Food experience ?
+                                <app-rating [star]="4"></app-rating>
+                            </h6>
+
+                            <p class="sm mb-0">I've never tasted cheese this good! The selection at this deli is
+                                impressive, and the staff was so helpful in suggesting new varieties to try. A cheese
+                                lover's paradise.</p>
+                        </li>
+                        <li>
+                            <h6 class="sm">How was your Delivery experience ?
+                                <app-rating [star]="4"></app-rating>
+                            </h6>
+
+                            <p class="sm mb-0">Impressed with the deli food delivery service! The sandwiches arrived
+                                fresh and well-packed, maintaining all the flavors. Prompt delivery and a tasty treat!
+                            </p>
+                        </li>
+                        <li>
+                            <h6 class="sm">How was your shop experience ?
+                                <app-rating [star]="4"></app-rating>
+                            </h6>
+
+                            <p class="sm mb-0">Absolutely delightful experience at Flavorsome Delights. The staff was
+                                friendly, and the atmosphere was cozy. The sandwiches were fresh and bursting with
+                                flavor. A must-visit for any food enthusiast!</p>
+                        </li>
+                        <li class="edit-review-link">
+                            <a (click)="editReview()">
+                                <button mat-icon-button class="border xs">
+                                    <svg-icon src="assets/images/ic-edit.svg"></svg-icon>
+                                </button>
+                                Edit Review
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="_right">
+                <div class="el-group">
+                    <h6 class="mb-16p">Shipping Details</h6>
+                    <ul class="address-detail">
+                        <li>
+                            <h6 class="xs"> Shipping Address</h6>
+                            <p class="_add">56, Residency Road Bengaluru, Karnataka, India ZIP: 560025</p>
+                        </li>
+                        <li>
+                            <h6 class="xs"> Shipping Method</h6>
+                            <span class="text-primary">Express Shipping</span>
+                            <p>Delivers Between 22 - 26 July 2023</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="el-group">
+                    <h6>Order Summary</h6>
+                    <div class="card space-2 primary">
+                        <ul class="order-summary-list pb-0">
+                            <li class="lg strong">
+                                <p>Payment Method</p>
+                                <span>Debit Card</span>
+                            </li>
+                            <li class="sub-list">
+                                <ul class="w-100">
+                                    <li>
+                                        <p>Classic Roast Beef</p>
+                                        <span>₹210.00</span>
+                                    </li>
+                                    <li>
+                                        <p>Regular Paneer</p>
+                                        <span>₹300.00</span>
+                                    </li>
+                                    <li class="strong mb-0">
+                                        <p>Sub Total</p>
+                                        <span>₹510.00</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Coupon Discount</p>
+                                <span class="text-error">- ₹150.00</span>
+                            </li>
+                            <li>
+                                <p>Shipping Charges</p>
+                                <span>₹100.00</span>
+                            </li>
+                            <li>
+                                <p>Taxes</p>
+                                <span>₹20.00</span>
+                            </li>
+                            <li class="lg strong bt mb-0">
+                                <p>Order Total</p>
+                                <span>₹460.00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-layout>

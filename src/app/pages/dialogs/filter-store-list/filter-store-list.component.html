@@ -1,0 +1,71 @@
+<div mat-dialog-title>
+    <h5 class="m-0">Filter</h5>
+    <button mat-icon-button mat-dialog-close><img src="./assets/images/ic-close.svg" /></button>
+</div>
+
+<mat-dialog-content class="p-0">
+    <mat-tab-group class="vertical-tabs">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <h6>Pricing</h6>
+                <span>{{minValue}} - {{maxValue}}</span>
+            </ng-template>
+            <div class="price-rang-block">
+                <h6>Price</h6>
+                <strong class="h5">{{minValue}} - {{maxValue}}</strong>
+                <div class="w-100">
+                    <app-rage-slider [min]="100" [max]="500" [step]="100" [minv]="300" [maxv]="500" prefix="₹"></app-rage-slider>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <h6>Ratings</h6>
+                <span>{{rating}}</span>
+            </ng-template>
+            <div class="price-rang-block">
+                <h6>Ratings</h6>
+                <strong class="h5">{{rating}}</strong>
+                <div class="w-100">
+                    <app-rage-slider [min]="3" [max]="5" [step]="0.5" [minv]="4" [maxv]="5"></app-rage-slider>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <h6>Travel Distance</h6>
+                <span>1km - 5km</span>
+            </ng-template>
+            <div class="price-rang-block">
+                <h6>Distance</h6>
+                <strong class="h5">1km - 5km</strong>
+                <div class="w-100">
+                    <app-rage-slider [min]="0" [max]="25" [step]="5" [minv]="0" [maxv]="5" suffix="km"></app-rage-slider>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <h6>Travel Time</h6>
+                <span>15min - 30min</span>
+            </ng-template>
+            <div class="price-rang-block">
+                <h6>Distance</h6>
+                <strong class="h5">15min - 30min</strong>
+                <div class="w-100">
+                    <app-rage-slider [min]="15" [max]="75" [step]="15" [minv]="15" [maxv]="30" suffix="min"></app-rage-slider>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <h6>Other</h6>
+            </ng-template>
+            Comming Soon
+        </mat-tab>
+    </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" class="sm" mat-dialog-close>Clear All</button>
+    <button mat-flat-button color="primary" class="sm" [mat-dialog-close]="true" cdkFocusInitial>Apply</button>
+</mat-dialog-actions>

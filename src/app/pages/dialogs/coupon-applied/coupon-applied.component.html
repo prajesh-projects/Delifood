@@ -1,0 +1,18 @@
+<div mat-dialog-title class="b-none">
+    <h5 class="m-0"></h5>
+    <button mat-icon-button mat-dialog-close><img src="./assets/images/ic-close.svg" /></button>
+</div>
+
+<mat-dialog-content>
+    <div class="pop-thumb-msg">
+        <em class="i"><img src="assets/images/ic-shopping-bag.svg" /></em>
+        <h5>Hurray !</h5>
+        <h2>15% Off</h2>
+        <p class="mb-30p">Coupon <a href="javascript:void(0);" title="" class="strong">FLAVOR15</a> is applied
+            successfully.</p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" class="sm" mat-dialog-close (click)="openDialog()">Apply Other Coupon</button>
+    <button mat-flat-button color="primary" class="sm" [mat-dialog-close]="true" cdkFocusInitial>ok</button>
+</mat-dialog-actions>

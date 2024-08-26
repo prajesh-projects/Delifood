@@ -1,0 +1,37 @@
+<div class="login-wrapper">
+    <div class="_header">
+        <a href="javascript:void(0);" title="Deli Food"><img src="./assets/images/logo.svg" /></a>
+        <button mat-icon-button [routerLink]="'/home'" (click)="globalVariablesService.isLogin = false"><img
+                src="./assets/images/ic-close.svg" /></button>
+    </div>
+    <div class="_body">
+        <div class="_left">
+            <!-- OTP block -->
+            <div class="_form">
+                <h3 class="fade-border">
+                    OTP Verification
+                </h3>
+                <p class="lg">We've sent an OTP to XXX XXX 6325</p>
+                <div class="form-group">
+                    <app-text-field label="Phone Number" btn="./assets/images/ic-selected-edit.svg" value="8569656325"
+                        class="filled" disable="true" callLink="/"></app-text-field>
+                </div>
+                <div class="form-group">
+                    <app-text-field label="Your Name" img="./assets/images/ic-user.svg"
+                        [required]="true"></app-text-field>
+                </div>
+                <div class="form-group">
+                    <app-text-field label="Email" img="./assets/images/ic-mail.svg" [required]="true"></app-text-field>
+                </div>
+                <div class="form-group mb-0">
+                    <app-text-field label="One Time Password"></app-text-field>
+                </div>
+                <app-resend-timer />
+                <button mat-flat-button color="primary" class="w-100" [routerLink]="['/personalized']">Verify OTP</button>
+            </div>
+        </div>
+        <div class="_right">
+            <app-img-slider></app-img-slider>
+        </div>
+    </div>
+</div>
